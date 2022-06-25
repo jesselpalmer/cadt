@@ -8,6 +8,9 @@
 
 class Stack {
 public:
+  void push();
+  void pop();
+  int search();
 };
 
 #endif //CADT_STACK_H
