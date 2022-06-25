@@ -6,17 +6,19 @@
 using namespace std::chrono;
 
 void perfTest() {
-  int attempts = 1000000;
+  int attempts = 10000;
   LinkedList *linkedList = new LinkedList();
   auto start = high_resolution_clock::now();
 
   for (int i = 0; i < attempts; i++) {
-    linkedList->addToEnd(i);
+    linkedList->addToFront(i);
   }
 
   for (int i = 0; i < attempts; i++) {
-    linkedList->removeFirst();
+    //std::cout << linkedList->removeFirst() << std::endl;
   }
+
+  linkedList->toString();
 
   auto stop = high_resolution_clock::now();
   auto duration = duration_cast<milliseconds>(stop - start);
@@ -25,5 +27,6 @@ void perfTest() {
 }
 
 int main() {
+  perfTest();
   return 0;
 }

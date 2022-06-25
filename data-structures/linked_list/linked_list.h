@@ -16,8 +16,9 @@ private:
   int length = 0;
 
 public:
-  int removeFirst();
   void addToEnd(int value);
+  void addToFront(int value);
+  int removeFirst();
   int size() const;
   void toString();
 };

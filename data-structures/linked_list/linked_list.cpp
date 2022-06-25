@@ -15,9 +15,25 @@ void LinkedList::addToEnd(int value) {
   } else {
     LinkedList::tail->next = newNode;
     LinkedList::tail = newNode;
+    LinkedList::length++;
   }
+}
 
-  LinkedList::length++;
+void LinkedList::addToFront(int value) {
+  Node* newNode = new Node();
+  newNode->value = value;
+  newNode->prev = nullptr;
+  newNode->next = nullptr;
+
+  if (LinkedList::head == nullptr) {
+    LinkedList::head = newNode;
+    LinkedList::tail = newNode;
+  } else {
+    newNode->next = LinkedList::head;
+    LinkedList::head->prev = newNode;
+    LinkedList::head = newNode;
+    LinkedList::length++;
+  }
 }
 
 int LinkedList::removeFirst() {
