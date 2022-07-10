@@ -3,9 +3,20 @@
 //
 #include "linked_list.h"
 
+#include <iostream>
+
+LinkedList::LinkedList() {}
+
+LinkedList::LinkedList(int value) {
+  addToFront(value);
+}
+
+LinkedList::~LinkedList() {
+  std::cout << "all done";
+}
+
 void LinkedList::addToEnd(int value) {
-  Node* newNode = new Node();
-  newNode->value = value;
+  Node* newNode = new Node(value);
   newNode->prev = nullptr;
   newNode->next = nullptr;
 
@@ -15,13 +26,13 @@ void LinkedList::addToEnd(int value) {
   } else {
     LinkedList::tail->next = newNode;
     LinkedList::tail = newNode;
-    LinkedList::length++;
   }
+
+  LinkedList::length++;
 }
 
 void LinkedList::addToFront(int value) {
-  Node* newNode = new Node();
-  newNode->value = value;
+  Node* newNode = new Node(value);
   newNode->prev = nullptr;
   newNode->next = nullptr;
 
@@ -32,15 +43,16 @@ void LinkedList::addToFront(int value) {
     newNode->next = LinkedList::head;
     LinkedList::head->prev = newNode;
     LinkedList::head = newNode;
-    LinkedList::length++;
   }
+
+  LinkedList::length++;
 }
 
 int LinkedList::removeFirst() {
   Node* firstNode = LinkedList::head;
   LinkedList::head = firstNode->next;
   LinkedList::length--;
-  return firstNode->value;
+  return firstNode->getValue();
 }
 
 int LinkedList::size() const {
@@ -51,7 +63,7 @@ void LinkedList::toString() {
   Node* currentNode = LinkedList::head;
 
  while(currentNode != nullptr) {
-    std::cout << currentNode->value << std::endl;
+    std::cout << currentNode->getValue() << std::endl;
     currentNode = currentNode->next;
  }
 }

@@ -3,3 +3,11 @@
 //
 
 #include "node.h"
+
+Node::Node(int value) {
+  Node::value = value;
+}
+
+int Node::getValue() {
+  return Node::value;
+}

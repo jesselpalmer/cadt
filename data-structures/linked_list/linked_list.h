@@ -16,6 +16,9 @@ private:
   int length = 0;
 
 public:
+  LinkedList();
+  LinkedList(int value);
+  ~LinkedList();
   void addToEnd(int value);
   void addToFront(int value);
   int removeFirst();
