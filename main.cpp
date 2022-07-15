@@ -1,7 +1,13 @@
+// Copyright Jesse Palmer All Rights Reserved.
+//
+// Use of this source code is governed by the MIT license that can be
+// found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
+
 #include <chrono>
 #include <iostream>
 
 #include "data-structures/linked_list/linked_list.h"
+#include "testing/TestRunner.h"
 
 using namespace std::chrono;
 
@@ -28,7 +34,13 @@ void perfTest() {
   std::cout << duration.count() << std::endl;
 }
 
-int main() {
-  perfTest();
+int main(int argc, char *argv[]) {
+  // perfTest();
+  std::string firstArg = argv[1];
+
+  if (firstArg == "--test") {
+    TestRunner::executeTest();
+  }
+
   return 0;
 }

@@ -9,12 +9,17 @@
 class Node {
 private:
   int value;
-
-public:
   struct Node* prev;
   struct Node* next;
+
+public:
   Node(int value);
   int getValue();
+  void setValue(int value);
+  Node* getPrev();
+  void setPrev(Node* prev);
+  Node* getNext();
+  void setNext(Node* next);
 };
 
 #endif //CADT_NODE_H

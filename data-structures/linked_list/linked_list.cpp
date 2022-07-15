@@ -1,9 +1,11 @@
+// Copyright Jesse Palmer All Rights Reserved.
 //
-// Created by Jesse Palmer on 6/22/22.
-//
-#include "linked_list.h"
+// Use of this source code is governed by the MIT license that can be
+// found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
 #include <iostream>
+
+#include "linked_list.h"
 
 LinkedList::LinkedList() {}
 
@@ -17,14 +19,12 @@ LinkedList::~LinkedList() {
 
 void LinkedList::addToEnd(int value) {
   Node* newNode = new Node(value);
-  newNode->prev = nullptr;
-  newNode->next = nullptr;
 
   if (LinkedList::head == nullptr) {
     LinkedList::head = newNode;
     LinkedList::tail = newNode;
   } else {
-    LinkedList::tail->next = newNode;
+    LinkedList::tail->setNext(newNode);
     LinkedList::tail = newNode;
   }
 
@@ -33,15 +33,13 @@ void LinkedList::addToEnd(int value) {
 
 void LinkedList::addToFront(int value) {
   Node* newNode = new Node(value);
-  newNode->prev = nullptr;
-  newNode->next = nullptr;
 
   if (LinkedList::head == nullptr) {
     LinkedList::head = newNode;
     LinkedList::tail = newNode;
   } else {
-    newNode->next = LinkedList::head;
-    LinkedList::head->prev = newNode;
+    newNode->setNext(LinkedList::head);
+    LinkedList::head->setPrev(newNode);
     LinkedList::head = newNode;
   }
 
@@ -50,7 +48,7 @@ void LinkedList::addToFront(int value) {
 
 int LinkedList::removeFirst() {
   Node* firstNode = LinkedList::head;
-  LinkedList::head = firstNode->next;
+  LinkedList::head = firstNode->getNext();
   LinkedList::length--;
   return firstNode->getValue();
 }
@@ -64,6 +62,6 @@ void LinkedList::toString() {
 
  while(currentNode != nullptr) {
     std::cout << currentNode->getValue() << std::endl;
-    currentNode = currentNode->next;
+    currentNode = currentNode->getNext();
  }
 }

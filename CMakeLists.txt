@@ -10,4 +10,6 @@ add_executable(cadt
         data-structures/node/node.cpp
         data-structures/node/node.h
         data-structures/stack/stack.cpp
-        data-structures/stack/stack.h)
+        data-structures/stack/stack.h
+        testing/TestRunner.cpp
+        testing/TestRunner.h data-structures/node/node_tests.cpp data-structures/node/node_tests.h)
