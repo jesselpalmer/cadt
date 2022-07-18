@@ -7,6 +7,8 @@
 
 #include "linked_list.h"
 
+namespace data_structures {
+
 LinkedList::LinkedList() {}
 
 LinkedList::LinkedList(int value) {
@@ -18,7 +20,7 @@ LinkedList::~LinkedList() {
 }
 
 void LinkedList::addToEnd(int value) {
-  Node* newNode = new Node(value);
+  Node *newNode = new Node(value);
 
   if (LinkedList::head == nullptr) {
     LinkedList::head = newNode;
@@ -32,7 +34,7 @@ void LinkedList::addToEnd(int value) {
 }
 
 void LinkedList::addToFront(int value) {
-  Node* newNode = new Node(value);
+  Node *newNode = new Node(value);
 
   if (LinkedList::head == nullptr) {
     LinkedList::head = newNode;
@@ -47,7 +49,7 @@ void LinkedList::addToFront(int value) {
 }
 
 int LinkedList::removeFirst() {
-  Node* firstNode = LinkedList::head;
+  Node *firstNode = LinkedList::head;
   LinkedList::head = firstNode->getNext();
   LinkedList::length--;
   return firstNode->getValue();
@@ -58,10 +60,12 @@ int LinkedList::size() const {
 }
 
 void LinkedList::toString() {
-  Node* currentNode = LinkedList::head;
+  Node *currentNode = LinkedList::head;
 
- while(currentNode != nullptr) {
+  while (currentNode != nullptr) {
     std::cout << currentNode->getValue() << std::endl;
     currentNode = currentNode->getNext();
- }
+  }
 }
+
+} // namespace data_structures

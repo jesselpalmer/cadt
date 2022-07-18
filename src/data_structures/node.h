@@ -3,8 +3,10 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
-#ifndef CADT_NODE_H
-#define CADT_NODE_H
+#ifndef CADT_DATA_STRUCTURES_NODE_H
+#define CADT_DATA_STRUCTURES_NODE_H
+
+namespace data_structures {
 
 class Node {
 private:
@@ -13,6 +15,7 @@ private:
   struct Node* next;
 
 public:
+  Node();
   Node(int value);
   int getValue();
   void setValue(int value);
@@ -22,4 +25,6 @@ public:
   void setNext(Node* next);
 };
 
-#endif //CADT_NODE_H
+} // namespace data_structures
+
+#endif // CADT_DATA_STRUCTURES_NODE_H

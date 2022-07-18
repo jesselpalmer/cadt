@@ -6,14 +6,14 @@
 #include <chrono>
 #include <iostream>
 
-#include "data-structures/linked_list/linked_list.h"
-#include "testing/TestRunner.h"
+#include "src/data_structures/linked_list.h"
+#include "lib/testing/test_runner.h"
 
 using namespace std::chrono;
 
 void perfTest() {
   int attempts = 10000;
-  LinkedList linkedList;
+  data_structures::LinkedList linkedList;
   auto start = high_resolution_clock::now();
 
   for (int i = 0; i < attempts; i++) {
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
   std::string firstArg = argv[1];
 
   if (firstArg == "--test") {
-    TestRunner::executeTest();
+    testing::TestRunner::executeTest();
   }
 
   return 0;

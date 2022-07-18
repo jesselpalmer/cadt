@@ -5,6 +5,10 @@
 
 #include "node.h"
 
+namespace data_structures {
+
+Node::Node() {}
+
 Node::Node(int value) {
   Node::value = value;
   Node::prev = nullptr;
@@ -19,18 +23,20 @@ void Node::setValue(int value) {
   Node::value = value;
 }
 
-Node* Node::getPrev() {
+Node *Node::getPrev() {
   return Node::prev;
 }
 
-void Node::setPrev(Node* prev) {
+void Node::setPrev(Node *prev) {
   Node::prev = prev;
 }
 
-Node* Node::getNext() {
+Node *Node::getNext() {
   return Node::next;
 }
 
 void Node::setNext(Node *next) {
   Node::next = next;
 }
+
+} // namespace data_structures

@@ -3,17 +3,19 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
-#ifndef CADT_TESTRUNNER_H
-#define CADT_TESTRUNNER_H
+#ifndef CADT_TESTING_TEST_RUNNER_H
+#define CADT_TESTING_TEST_RUNNER_H
 
 #include <iostream>
 
+namespace testing {
+
 class TestRunner {
-private:
+ private:
   static int numSuccessfulTests;
   static int numFailingTests;
 
-public:
+ public:
   TestRunner();
   static void completeSuite();
   static void executeTest();
@@ -24,4 +26,6 @@ public:
   static void testSuite(std::string functionName);
 };
 
-#endif //CADT_TESTRUNNER_H
+} // namespace testing
+
+#endif // CADT_TESTING_TEST_RUNNER_H
