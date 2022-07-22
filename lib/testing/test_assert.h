@@ -11,7 +11,10 @@ namespace testing {
 
 class Assert {
  public:
-  Assert(auto item1, auto item2, std::string testName);
+  Assert(int item1, int item2, std::string testName);
+
+ private:
+  bool compare(int item1, int item2);
 };
 
 } // namespace testing

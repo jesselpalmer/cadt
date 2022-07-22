@@ -8,7 +8,7 @@
 
 namespace testing {
 
-Assert::Assert(auto item1, auto item2, std::string testName) {
+Assert::Assert(int item1, int item2, std::string testName) {
   if (compare(item1, item2)) {
     testing::TestRunner::testPassed(testName);
     std::cout << "pass" << std::endl;
@@ -18,7 +18,7 @@ Assert::Assert(auto item1, auto item2, std::string testName) {
   }
 }
 
-bool compare(auto item1, auto item2) {
+bool Assert::compare(int item1, int item2) {
   return item1 == item2;
 }
 
