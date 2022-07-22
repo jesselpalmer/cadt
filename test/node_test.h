@@ -8,17 +8,20 @@
 
 #include <iostream>
 
-#include "../lib/testing/test.h"
+#include "../lib/testing/test_suite.h"
+#include "../lib/testing/assert.h"
 
 namespace test {
 
-class NodeTests : public testing::Test {
+class NodeTests : public testing::TestSuite {
  private:
-  static void setConstructorTests();
-  static void setValueTests();
+  void setConstructorTests();
+  void setValueTests();
 
  public:
-  static void executeTest();
+  NodeTests();
+  void loadTests();
+  void executeTestSuite();
 };
 
 } // namespace test

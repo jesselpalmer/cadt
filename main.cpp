@@ -7,7 +7,7 @@
 #include <iostream>
 
 #include "src/data_structures/linked_list.h"
-#include "lib/testing/test_runner.h"
+#include "test/ds_test_runner.h"
 
 using namespace std::chrono;
 
@@ -39,7 +39,8 @@ int main(int argc, char *argv[]) {
   std::string firstArg = argv[1];
 
   if (firstArg == "--test") {
-    testing::TestRunner::executeTest();
+    test::DSTestRunner ds_test_runner = test::DSTestRunner();
+    ds_test_runner.execute();
   }
 
   return 0;

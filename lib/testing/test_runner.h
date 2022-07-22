@@ -6,24 +6,29 @@
 #ifndef CADT_TESTING_TEST_RUNNER_H
 #define CADT_TESTING_TEST_RUNNER_H
 
-#include <iostream>
+#include "test.h"
+#include "test_suite.h"
 
 namespace testing {
 
 class TestRunner {
  private:
+  static std::vector<TestSuite> testSuites;
   static int numSuccessfulTests;
   static int numFailingTests;
+  static void executeTestSuites();
 
  public:
   TestRunner();
-  static void completeSuite();
-  static void executeTest();
+  static void addTestSuites(std::vector<TestSuite> testSuite);
+  static void addTestSuite(TestSuite testSuite);
+  static void completeMsg();
+  static void execute();
   static void incrementPassingTests();
   static void incrementFailingTests();
-  static void testFailed(std::string functionName, std::string errorMsg);
+  static void startMsg(std::string functionName);
+  static void testFailed(std::string functionName);
   static void testPassed(std::string functionName);
-  static void testSuite(std::string functionName);
 };
 
 } // namespace testing

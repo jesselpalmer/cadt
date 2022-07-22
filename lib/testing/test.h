@@ -6,11 +6,19 @@
 #ifndef CADT_TESTING_TEST_H
 #define CADT_TESTING_TEST_H
 
+#include <string>
+
 namespace testing {
 
 class Test {
+ private:
+  std::string testName;
+
  public:
+  Test(std::string testName);
   void executeTest();
+  std::string getTestName();
+  void setTestName(std::string testName);
 };
 
 } // namespace testing

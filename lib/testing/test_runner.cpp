@@ -7,29 +7,35 @@
 #include <iostream>
 
 #include "test_runner.h"
-#include "../../test/node_tests.h"
+#include "test.h"
 
 namespace testing {
 
 int TestRunner::numFailingTests = 0;
 int TestRunner::numSuccessfulTests = 0;
 
-void TestRunner::completeSuite() {
+void TestRunner::completeMsg() {
   int totalTests = TestRunner::numFailingTests + TestRunner::numSuccessfulTests;
   std::cout << totalTests << " Test(s) executed" << std::endl;
   std::cout << TestRunner::numSuccessfulTests << " Test(s) passed" << std::endl;
   std::cout << TestRunner::numFailingTests << " Test(s) failed" << std::endl;
 }
 
-void TestRunner::executeTest() {
+void TestRunner::execute() {
   auto start = std::chrono::high_resolution_clock::now();
-  test::NodeTests::executeTest();
+  TestRunner::executeTestSuites();
   auto stop = std::chrono::high_resolution_clock::now();
   auto time_passed = duration_cast<std::chrono::microseconds>(stop - start);
   std::cout << "Test(s) completed in " << (double) time_passed.count() / 1000000 << " seconds!\n" << std::endl;
   std::cout << "Summary" << std::endl;
   std::cout << "-------" << std::endl;
-  completeSuite();
+  completeMsg();
+}
+
+void TestRunner::executeTestSuites() {
+  for (auto testSuite : TestRunner::testSuites) {
+    testSuite.executeTestSuite();
+  }
 }
 
 void TestRunner::incrementFailingTests() {
@@ -40,18 +46,18 @@ void TestRunner::incrementPassingTests() {
   TestRunner::numSuccessfulTests++;
 }
 
-void TestRunner::testFailed(std::string functionName, std::string errorMsg) {
+void TestRunner::startMsg(std::string functionName) {
+  std::cout << "Executing " << functionName << "..." << std::endl;
+}
+
+void TestRunner::testFailed(std::string functionName) {
   TestRunner::incrementFailingTests();
-  std::cout << "Test Failed: " << functionName << " - " << errorMsg << std::endl;
+  std::cout << "Test Failed: " << functionName << std::endl;
 }
 
 void TestRunner::testPassed(std::string functionName) {
   TestRunner::incrementPassingTests();
   std::cout << "Test Passed: " << functionName << std::endl;
-}
-
-void TestRunner::testSuite(std::string testSuiteName) {
-  std::cout << "Executing " << testSuiteName << "..." << std::endl;
 }
 
 } // namespace testing

@@ -19,5 +19,5 @@ add_executable(cadt
         lib/testing/test.h
         test/ds_test_runner.cpp
         test/ds_test_runner.h
-        test/node_tests.cpp
-        test/node_tests.h)
+        test/node_test.cpp
+        test/node_test.h lib/testing/assert.cpp lib/testing/assert.h)

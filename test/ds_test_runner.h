@@ -6,10 +6,17 @@
 #ifndef CADT_TEST_DS_TEST_RUNNER_H_
 #define CADT_TEST_DS_TEST_RUNNER_H_
 
+#include <vector>
+#include "../lib/testing/test_runner.h"
+
 namespace test {
 
-class DSTestRunner {
+class DSTestRunner : public testing::TestRunner {
+ private:
+  void addTestSuites();
 
+ public:
+  DSTestRunner();
 };
 
 } // namespace test
