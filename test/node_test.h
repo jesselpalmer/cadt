@@ -9,7 +9,7 @@
 #include <iostream>
 
 #include "../lib/testing/test_suite.h"
-#include "../lib/testing/assert.h"
+#include "../lib/testing/test_assert.h"
 
 namespace test {
 

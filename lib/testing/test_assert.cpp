@@ -2,7 +2,7 @@
 // Created by Jesse Palmer on 7/21/22.
 //
 
-#include "assert.h"
+#include "test_assert.h"
 #include "test_runner.h"
 #include <iostream>
 

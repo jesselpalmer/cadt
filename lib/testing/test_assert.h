@@ -2,8 +2,8 @@
 // Created by Jesse Palmer on 7/21/22.
 //
 
-#ifndef CADT_LIB_TESTING_ASSERT_H_
-#define CADT_LIB_TESTING_ASSERT_H_
+#ifndef CADT_LIB_TESTING_TEST_ASSERT_H_
+#define CADT_LIB_TESTING_TEST_ASSERT_H_
 
 #include "string"
 
@@ -16,4 +16,4 @@ class Assert {
 
 } // namespace testing
 
-#endif // CADT_LIB_TESTING_ASSERT_H_
+#endif // CADT_LIB_TESTING_TEST_ASSERT_H_
