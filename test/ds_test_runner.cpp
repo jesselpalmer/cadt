@@ -14,7 +14,7 @@ DSTestRunner::DSTestRunner() {
   addTestSuites();
 }
 
-void addTestSuites() {
+void DSTestRunner::addTestSuites() {
   testing::TestSuite nodeTests = testing::TestSuite();
   DSTestRunner::addTestSuite(nodeTests);
 }
