@@ -11,13 +11,15 @@ add_executable(cadt
         src/data_structures/node.h
         src/data_structures/stack.cpp
         src/data_structures/stack.h
+        lib/testing/assert.cpp
+        lib/testing/assert.h
+        lib/testing/test.cpp
+        lib/testing/test.h
         lib/testing/test_runner.cpp
         lib/testing/test_runner.h
         lib/testing/test_suite.cpp
         lib/testing/test_suite.h
-        lib/testing/test.cpp
-        lib/testing/test.h
         test/ds_test_runner.cpp
         test/ds_test_runner.h
         test/node_test.cpp
-        test/node_test.h lib/testing/assert.cpp lib/testing/assert.h)
+        test/node_test.h)
