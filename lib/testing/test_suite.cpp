@@ -9,6 +9,8 @@
 
 namespace testing {
 
+TestSuite::TestSuite() = default;
+
 TestSuite::TestSuite(std::string suiteName) {
   TestSuite::suiteName = suiteName;
 }
