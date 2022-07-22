@@ -9,7 +9,7 @@
 
 namespace data_structures {
 
-LinkedList::LinkedList() {}
+LinkedList::LinkedList() = default;
 
 LinkedList::LinkedList(int value) {
   addToFront(value);

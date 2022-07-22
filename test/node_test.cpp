@@ -55,8 +55,8 @@ void ValueTests::executeTest() {
 
 NodeTests::NodeTests() {
   test::NodeTests::setSuiteName("Node tests");
-  testing::Test constructorTests = ConstructorTests("should create object using constructor correctly");
-  testing::Test valueTests = ValueTests("should set/get values correctly");
+  testing::Test constructorTests = test::ConstructorTests("should create object using constructor correctly");
+  testing::Test valueTests = test::ValueTests("should set/get values correctly");
   std::vector<testing::Test> nodeTests = {constructorTests, valueTests};
   test::NodeTests::addTests(nodeTests);
 }

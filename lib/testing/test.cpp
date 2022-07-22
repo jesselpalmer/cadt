@@ -7,8 +7,14 @@
 
 namespace testing {
 
-void Test::executeTest() {
+void Test::executeTest() {}
 
+std::string Test::getTestName() {
+  return Test::testName;
+}
+
+void Test::setTestName(std::string testName) {
+  Test::testName = testName;
 }
 
 } // namespace testing

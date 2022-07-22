@@ -7,6 +7,7 @@
 #include "../lib/testing/test_suite.h"
 
 #include "ds_test_runner.h"
+#include "node_test.h"
 
 namespace test {
 
@@ -15,7 +16,7 @@ DSTestRunner::DSTestRunner() {
 }
 
 void DSTestRunner::addTestSuites() {
-  testing::TestSuite nodeTests = testing::TestSuite();
+  testing::TestSuite nodeTests = test::NodeTests();
   DSTestRunner::addTestSuite(nodeTests);
 }
 
