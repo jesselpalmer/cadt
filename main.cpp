@@ -39,8 +39,7 @@ int main(int argc, char *argv[]) {
   std::string firstArg = argv[1];
 
   if (firstArg == "--test") {
-    test::DSTestRunner ds_test_runner = test::DSTestRunner();
-    ds_test_runner.execute();
+    test::DSTestRunner().execute();
   }
 
   return 0;
