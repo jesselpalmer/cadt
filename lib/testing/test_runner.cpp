@@ -14,6 +14,8 @@ namespace testing {
 int TestRunner::numFailingTests = 0;
 int TestRunner::numSuccessfulTests = 0;
 
+TestRunner::TestRunner() = default;
+
 void TestRunner::completeMsg() {
   int totalTests = TestRunner::numFailingTests + TestRunner::numSuccessfulTests;
   std::cout << totalTests << " Test(s) executed" << std::endl;
