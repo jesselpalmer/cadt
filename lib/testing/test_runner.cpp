@@ -17,6 +17,10 @@ std::vector<TestSuite> TestRunner::testSuites = {};
 
 TestRunner::TestRunner() = default;
 
+void TestRunner::addTestSuite(TestSuite testSuite) {
+  TestRunner::testSuites.push_back(testSuite);
+}
+
 void TestRunner::completeMsg() {
   int totalTests = TestRunner::numFailingTests + TestRunner::numSuccessfulTests;
   std::cout << totalTests << " Test(s) executed" << std::endl;
