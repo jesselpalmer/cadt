@@ -70,6 +70,8 @@ std::string TestRunner::getColoredText(std::string text, std::string color) {
     stringStr =  "\x1b[32m" + text + "\x1b[0m";;
   } else if (color == "red") {
     stringStr = "\x1b[31m" + text + "\x1b[0m";
+  } else {
+    stringStr = text;
   }
 
   return stringStr;
