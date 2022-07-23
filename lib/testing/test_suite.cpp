@@ -26,4 +26,8 @@ void TestSuite::executeTestSuite() {
   }
 }
 
+void TestSuite::addTests(std::vector<Test> tests) {
+  TestSuite::tests = tests;
+};
+
 } // namespace testing
