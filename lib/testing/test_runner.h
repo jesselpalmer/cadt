@@ -20,15 +20,16 @@ class TestRunner {
 
  public:
   TestRunner();
-  static void addTestSuites(std::vector<TestSuite> testSuite);
   static void addTestSuite(TestSuite testSuite);
-  static void completeMsg();
+  static void addTestSuites(std::vector<TestSuite> testSuite);
+  static void completeMsg(double elapsedTime);
   static void execute();
   static void incrementPassingTests();
   static void incrementFailingTests();
+  static std::string getColoredText(std::string text, std::string color);
   static void startMsg();
-  static void testFailed(std::string functionName);
-  static void testPassed(std::string functionName);
+  static void testFailed(std::string testName);
+  static void testPassed(std::string testName);
 };
 
 } // namespace testing

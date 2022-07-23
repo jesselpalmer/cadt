@@ -22,14 +22,11 @@ TestSuite::TestSuite(std::string suiteName, std::vector<Test*> tests) {
 }
 
 void TestSuite::executeTestSuite() {
-  std::cout << "\n" << TestSuite::suiteName << std::endl;
-  std::cout << "---------------" << std::endl;
+  std::cout << "\n\t" << TestSuite::suiteName << std::endl;
 
   for (auto test : TestSuite::tests) {
     test->executeTest();
   }
-
-  std::cout << "\n";
 }
 
 void TestSuite::addTests(std::vector<Test*> tests) {

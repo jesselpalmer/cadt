@@ -22,4 +22,4 @@ add_executable(cadt
         test/ds_test_runner.cpp
         test/ds_test_runner.h
         test/node_test.cpp
-        test/node_test.h)
+        test/node_test.h test/linked_list_test.cpp test/linked_list_test.h)

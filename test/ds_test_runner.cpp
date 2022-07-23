@@ -7,17 +7,20 @@
 #include "../lib/testing/test_suite.h"
 
 #include "ds_test_runner.h"
+#include "linked_list_test.h"
 #include "node_test.h"
 
 namespace test {
 
 DSTestRunner::DSTestRunner() {
-  addTestSuites();
+  loadTestSuites();
 }
 
-void DSTestRunner::addTestSuites() {
+void DSTestRunner::loadTestSuites() {
+  testing::TestSuite linkedListTest = test::LinkedListTest();
   testing::TestSuite nodeTests = test::NodeTests();
-  DSTestRunner::addTestSuite(nodeTests);
+  std::vector<testing::TestSuite> testSuites = {linkedListTest, nodeTests};
+  DSTestRunner::addTestSuites(testSuites);
 }
 
 } // namespace test

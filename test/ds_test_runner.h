@@ -13,7 +13,7 @@ namespace test {
 
 class DSTestRunner : public testing::TestRunner {
  private:
-  static void addTestSuites();
+  static void loadTestSuites();
 
  public:
   DSTestRunner();
