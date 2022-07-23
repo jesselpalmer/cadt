@@ -5,6 +5,7 @@
 
 #include "node_test.h"
 #include "../src/data_structures/node.h"
+#include "../lib/testing/test.h"
 #include "../lib/testing/test_runner.h"
 
 namespace test {
@@ -53,12 +54,16 @@ void ValueTests::executeTest() {
   }
 }
 
-NodeTests::NodeTests() {
-  test::NodeTests::setSuiteName("Node tests");
+void NodeTests::loadTests() {
   testing::Test constructorTests = test::ConstructorTests("should create object using constructor correctly");
-  testing::Test valueTests = test::ValueTests("should set/get values correctly");
+  testing::Test valueTests = ValueTests("should set/get values correctly");
   std::vector<testing::Test> nodeTests = {constructorTests, valueTests};
   test::NodeTests::addTests(nodeTests);
+}
+
+NodeTests::NodeTests() {
+  test::NodeTests::setSuiteName("Node tests");
+  loadTests();
 }
 
 } // namespace test

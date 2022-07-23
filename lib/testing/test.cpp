@@ -7,6 +7,12 @@
 
 namespace testing {
 
+Test::Test() = default;
+
+Test::Test(std::string testName) {
+  Test::testName = testName;
+}
+
 void Test::executeTest() {}
 
 std::string Test::getTestName() {

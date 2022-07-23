@@ -15,6 +15,7 @@ class Test {
   std::string testName;
 
  public:
+  Test();
   Test(std::string testName);
   void executeTest();
   std::string getTestName();
