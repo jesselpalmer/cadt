@@ -30,4 +30,8 @@ void TestSuite::addTests(std::vector<Test> tests) {
   TestSuite::tests = tests;
 };
 
+void TestSuite::setSuiteName(std::string suiteName) {
+  TestSuite::suiteName = suiteName;
+}
+
 } // namespace testing
