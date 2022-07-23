@@ -15,12 +15,10 @@ namespace test {
 
 class NodeTests : public testing::TestSuite {
  private:
-  void setConstructorTests();
-  void setValueTests();
+  void loadTests();
 
  public:
   NodeTests();
-  void loadTests();
   void executeTestSuite();
 };
 
