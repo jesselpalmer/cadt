@@ -13,6 +13,7 @@ namespace testing {
 
 int TestRunner::numFailingTests = 0;
 int TestRunner::numSuccessfulTests = 0;
+std::vector<TestSuite> TestRunner::testSuites = {};
 
 TestRunner::TestRunner() = default;
 
