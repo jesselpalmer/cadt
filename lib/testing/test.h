@@ -17,7 +17,7 @@ class Test {
  public:
   Test();
   Test(std::string testName);
-  void executeTest();
+  virtual void executeTest();
   std::string getTestName();
   void setTestName(std::string testName);
 };

@@ -26,7 +26,7 @@ class TestRunner {
   static void execute();
   static void incrementPassingTests();
   static void incrementFailingTests();
-  static void startMsg(std::string functionName);
+  static void startMsg();
   static void testFailed(std::string functionName);
   static void testPassed(std::string functionName);
 };

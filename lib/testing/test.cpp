@@ -4,7 +4,7 @@
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
 #include "test.h"
-
+#include <iostream>
 namespace testing {
 
 Test::Test() = default;
@@ -13,7 +13,9 @@ Test::Test(std::string testName) {
   Test::testName = testName;
 }
 
-void Test::executeTest() {}
+void Test::executeTest() {
+  std::cout << "hi";
+}
 
 std::string Test::getTestName() {
   return Test::testName;

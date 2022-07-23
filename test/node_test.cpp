@@ -5,15 +5,13 @@
 
 #include "node_test.h"
 #include "../src/data_structures/node.h"
-#include "../lib/testing/test.h"
-#include "../lib/testing/test_runner.h"
 
 namespace test {
 
 class ConstructorTests : public testing::Test {
  public:
   using Test::Test;
-  void executeTest();
+  void executeTest() override;
 };
 
 void ConstructorTests::executeTest() {
@@ -28,36 +26,26 @@ void ConstructorTests::executeTest() {
 class ValueTests : public testing::Test {
  public:
   using Test::Test;
-  void executeTest();
+  void executeTest() override;
 };
 
 void ValueTests::executeTest() {
   std::string testName = ValueTests::getTestName();
-
   data_structures::Node newNode = data_structures::Node();
+
   newNode.setValue(50);
   int value = newNode.getValue();
-
-  if (value == 50) {
-    testing::TestRunner::testPassed(testName);
-  } else {
-    testing::TestRunner::testFailed(testName);
-  }
+  testing::Assert(50, value, testName);
 
   newNode.setValue(137);
   value = newNode.getValue();
-
-  if (value == 137) {
-    testing::TestRunner::testPassed(testName);
-  } else {
-    testing::TestRunner::testFailed(testName);
-  }
+  testing::Assert(137, value, testName);
 }
 
 void NodeTests::loadTests() {
-  testing::Test constructorTests = test::ConstructorTests("should create object using constructor correctly");
-  testing::Test valueTests = ValueTests("should set/get values correctly");
-  std::vector<testing::Test> nodeTests = {constructorTests, valueTests};
+  test::ConstructorTests* constructorTests = new test::ConstructorTests("should create object using constructor correctly");
+  test::ValueTests* valueTests = new ValueTests("should set/get values correctly");
+  std::vector<testing::Test*> nodeTests = {constructorTests, valueTests};
   test::NodeTests::addTests(nodeTests);
 }
 

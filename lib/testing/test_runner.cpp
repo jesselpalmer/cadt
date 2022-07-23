@@ -29,6 +29,7 @@ void TestRunner::completeMsg() {
 }
 
 void TestRunner::execute() {
+  TestRunner::startMsg();
   auto start = std::chrono::high_resolution_clock::now();
   TestRunner::executeTestSuites();
   auto stop = std::chrono::high_resolution_clock::now();
@@ -53,18 +54,18 @@ void TestRunner::incrementPassingTests() {
   TestRunner::numSuccessfulTests++;
 }
 
-void TestRunner::startMsg(std::string functionName) {
-  std::cout << "Executing " << functionName << "..." << std::endl;
+void TestRunner::startMsg() {
+  std::cout << "Executing tests..." << std::endl;
 }
 
 void TestRunner::testFailed(std::string functionName) {
   TestRunner::incrementFailingTests();
-  std::cout << "Test Failed: " << functionName << std::endl;
+  std::cout << "❌ Test Failed: " << functionName << std::endl;
 }
 
 void TestRunner::testPassed(std::string functionName) {
   TestRunner::incrementPassingTests();
-  std::cout << "Test Passed: " << functionName << std::endl;
+  std::cout << "✅ Test Passed: " << functionName << std::endl;
 }
 
 } // namespace testing
