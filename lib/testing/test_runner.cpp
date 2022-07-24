@@ -28,13 +28,19 @@ void TestRunner::addTestSuite(TestSuite testSuite) {
 
 void TestRunner::completeMsg(double elapsedTime) {
   int totalTests = TestRunner::numFailingTests + TestRunner::numSuccessfulTests;
-  //std::cout << totalTests << " Test(s) executed" << std::endl;
-  std::cout << "\nTest Suites:\t" << TestRunner::numSuccessfulTests << " passed, ";
+
+  std::string testsSuitesPassedStr = std::to_string(TestRunner::numSuccessfulTests) + " passed";
+  std::string testsSuitesPassedGreenStr = TestRunner::getColoredText(testsSuitesPassedStr, "green");
+  std::cout << "\nTest Suites: " << testsSuitesPassedGreenStr << ", ";
   std::cout << totalTests << " total" << std::endl;
-  std::cout << "Tests:\t\t\t\t" << TestRunner::numSuccessfulTests << " passed, ";
+
+  std::string testsPassedStr = std::to_string(TestRunner::numSuccessfulTests) + " passed";
+  std::string testsPassedGreenStr = TestRunner::getColoredText(testsPassedStr, "green");
+  std::cout << "Tests:       " << testsPassedGreenStr << ", ";
   std::cout << totalTests << " total" << std::endl;
+
   std::cout << std::fixed << std::setprecision(7);
-  std::cout << "Time:\t\t\t\t\t" << elapsedTime<< " s" << std::endl;
+  std::cout << "Time:        " << elapsedTime<< " s" << std::endl;
   //std::cout << TestRunner::numFailingTests << " Test(s) failed" << std::endl;
 }
 
@@ -50,7 +56,6 @@ void TestRunner::execute() {
 
 void TestRunner::executeTestSuites() {
   for (auto testSuite : TestRunner::testSuites) {
-    std::cout << __FILE__ << std::endl;
     testSuite.executeTestSuite();
   }
 }
@@ -70,6 +75,8 @@ std::string TestRunner::getColoredText(std::string text, std::string color) {
     stringStr =  "\x1b[32m" + text + "\x1b[0m";;
   } else if (color == "red") {
     stringStr = "\x1b[31m" + text + "\x1b[0m";
+  } else if (color == "gray") {
+    stringStr = "\x1b[90m" + text + "\x1b[0m";
   } else {
     stringStr = text;
   }
@@ -84,13 +91,15 @@ void TestRunner::startMsg() {
 void TestRunner::testFailed(std::string testName) {
   TestRunner::incrementFailingTests();
   std::string redCheckmark = TestRunner::getColoredText("✓", "red");
-  std::cout << "\t\t" << redCheckmark << " " << testName << std::endl;
+  std::string grayTestName = TestRunner::getColoredText(testName, "gray");
+  std::cout << "\t\t" << redCheckmark << " " << grayTestName << std::endl;
 }
 
 void TestRunner::testPassed(std::string testName) {
   TestRunner::incrementPassingTests();
   std::string greenCheckmark = TestRunner::getColoredText("✓", "green");
-  std::cout << "\t\t" << greenCheckmark << " " << testName << std::endl;
+  std::string grayTestName = TestRunner::getColoredText(testName, "gray");
+  std::cout << "\t\t" << greenCheckmark << " " << grayTestName << " " << std::endl;
 }
 
 } // namespace testing

@@ -24,9 +24,9 @@ class TestRunner {
   static void addTestSuites(std::vector<TestSuite> testSuite);
   static void completeMsg(double elapsedTime);
   static void execute();
+  static std::string getColoredText(std::string text, std::string color);
   static void incrementPassingTests();
   static void incrementFailingTests();
-  static std::string getColoredText(std::string text, std::string color);
   static void startMsg();
   static void testFailed(std::string testName);
   static void testPassed(std::string testName);
