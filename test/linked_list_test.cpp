@@ -22,6 +22,7 @@ void SizeTests::executeTest() {
   linkedList.addToFront(30);
   linkedList.addToFront(23);
   int size = linkedList.size();
+
   testing::Assert(3, size, testName);
 }
 
