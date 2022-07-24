@@ -23,8 +23,8 @@ class LinkedList {
   LinkedList(int value);
   void addToEnd(int value);
   void addToFront(int value);
-  Node *getFirst();
-  Node *getLast();
+  int getFirst();
+  int getLast();
   int removeFirst();
   int size() const;
   void toString();

@@ -51,6 +51,10 @@ int LinkedList::removeFirst() {
   return firstNode->getValue();
 }
 
+int LinkedList::getFirst() {
+  return LinkedList::head->getValue();
+}
+
 int LinkedList::size() const {
   return LinkedList::length;
 }
