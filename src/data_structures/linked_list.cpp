@@ -15,10 +15,6 @@ LinkedList::LinkedList(int value) {
   addToFront(value);
 }
 
-LinkedList::~LinkedList() {
-  std::cout << "all done";
-}
-
 void LinkedList::addToEnd(int value) {
   Node *newNode = new Node(value);
 

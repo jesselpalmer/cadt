@@ -21,7 +21,6 @@ class LinkedList {
  public:
   LinkedList();
   LinkedList(int value);
-  ~LinkedList();
   void addToEnd(int value);
   void addToFront(int value);
   Node *getFirst();
