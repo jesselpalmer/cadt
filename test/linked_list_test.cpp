@@ -45,10 +45,30 @@ void AddToFrontTests::executeTest() {
   testing::Assert(93546, firstValue, testName);
 }
 
+class AddToEndTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void AddToEndTests::executeTest() {
+  std::string testName = AddToEndTests::getTestName();
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  linkedList.addToEnd(193);
+  linkedList.addToEnd(3232);
+  linkedList.addToEnd(744);
+  linkedList.addToEnd(93546);
+  int firstValue = linkedList.getFirst();
+
+  testing::Assert(193, firstValue, testName);
+}
+
 void LinkedListTest::loadTests() {
   test::SizeTests* sizeTests = new test::SizeTests("should set the size correctly");
   test::AddToFrontTests* addToFrontTests = new test::AddToFrontTests("should add to the front correctly");
-  std::vector<testing::Test*> linkedListTests = {sizeTests, addToFrontTests};
+  test::AddToEndTests* addToEndTests = new test::AddToEndTests("should add to the end correctly");
+  std::vector<testing::Test*> linkedListTests = {sizeTests, addToFrontTests, addToEndTests};
   test::LinkedListTest::addTests(linkedListTests);
 }
 
