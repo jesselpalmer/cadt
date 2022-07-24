@@ -5,6 +5,7 @@
 
 #include "node_test.h"
 #include "../src/data_structures/node.h"
+#include "../lib/testing/test_assert.h"
 
 namespace test {
 
