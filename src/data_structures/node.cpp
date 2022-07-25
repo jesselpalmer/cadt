@@ -12,14 +12,14 @@ Node::Node() {}
 
 Node::Node(int value) {
   Node::value = value;
-  Node::prev = nullptr;
   Node::next = nullptr;
+  Node::prev = nullptr;
 }
 
 Node::~Node() {
   Node::value = NULL;
-  Node::prev = nullptr;
   Node::next = nullptr;
+  Node::prev = nullptr;
 }
 
 int Node::getValue() {
