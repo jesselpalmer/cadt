@@ -48,11 +48,12 @@ int LinkedList::getFirst() {
   return LinkedList::head->getValue();
 }
 
-int LinkedList::removeFirst() {
-  Node *firstNode = LinkedList::head;
-  LinkedList::head = firstNode->getNext();
-  LinkedList::length--;
-  return firstNode->getValue();
+void LinkedList::removeFirst() {
+  if (LinkedList::length > 0) {
+    Node *firstNode = LinkedList::head;
+    LinkedList::head = firstNode->getNext();
+    LinkedList::length--;
+  }
 }
 
 int LinkedList::size() const {

@@ -26,9 +26,9 @@ class LinkedList {
   int getFirst();
   int getLast();
   bool isEmpty();
-  int remove(int value);
-  int removeFirst();
-  int removeLast();
+  void remove(int value);
+  void removeFirst();
+  void removeLast();
   bool search(int value);
   int size() const;
   void toString();
