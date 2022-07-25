@@ -4,6 +4,7 @@
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
 #include "node.h"
+#include <iostream>
 
 namespace data_structures {
 
@@ -11,6 +12,12 @@ Node::Node() {}
 
 Node::Node(int value) {
   Node::value = value;
+  Node::prev = nullptr;
+  Node::next = nullptr;
+}
+
+Node::~Node() {
+  Node::value = NULL;
   Node::prev = nullptr;
   Node::next = nullptr;
 }

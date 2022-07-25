@@ -17,6 +17,7 @@ private:
 public:
   Node();
   Node(int value);
+  ~Node();
   int getValue();
   void setValue(int value);
   Node* getPrev();
