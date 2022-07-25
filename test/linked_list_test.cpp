@@ -9,22 +9,23 @@
 
 namespace test {
 
-class SizeTests : public testing::Test {
+class AddEndTests : public testing::Test {
  public:
   using Test::Test;
   void executeTest() override;
 };
 
-void SizeTests::executeTest() {
-  std::string testName = SizeTests::getTestName();
+void AddEndTests::executeTest() {
+  std::string testName = AddEndTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
-  linkedList.addFront(1);
-  linkedList.addFront(30);
-  linkedList.addFront(23);
-  int size = linkedList.size();
+  linkedList.addEnd(193);
+  linkedList.addEnd(3232);
+  linkedList.addEnd(744);
+  linkedList.addEnd(93546);
+  int firstValue = linkedList.getFirst();
 
-  testing::Assert(3, size, testName);
+  testing::Assert(193, firstValue, testName);
 }
 
 class AddFrontTests : public testing::Test {
@@ -46,23 +47,22 @@ void AddFrontTests::executeTest() {
   testing::Assert(93546, firstValue, testName);
 }
 
-class AddEndTests : public testing::Test {
+class SizeTests : public testing::Test {
  public:
   using Test::Test;
   void executeTest() override;
 };
 
-void AddEndTests::executeTest() {
-  std::string testName = AddEndTests::getTestName();
+void SizeTests::executeTest() {
+  std::string testName = SizeTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
-  linkedList.addEnd(193);
-  linkedList.addEnd(3232);
-  linkedList.addEnd(744);
-  linkedList.addEnd(93546);
-  int firstValue = linkedList.getFirst();
+  linkedList.addFront(1);
+  linkedList.addFront(30);
+  linkedList.addFront(23);
+  int size = linkedList.size();
 
-  testing::Assert(193, firstValue, testName);
+  testing::Assert(3, size, testName);
 }
 
 void LinkedListTest::loadTests() {
