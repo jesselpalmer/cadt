@@ -21,8 +21,8 @@ class LinkedList {
  public:
   LinkedList();
   void add(int value);
-  void addToEnd(int value);
-  void addToFront(int value);
+  void addEnd(int value);
+  void addFront(int value);
   int getFirst();
   int getLast();
   bool isEmpty();

@@ -11,7 +11,7 @@ namespace data_structures {
 
 LinkedList::LinkedList() = default;
 
-void LinkedList::addToEnd(int value) {
+void LinkedList::addEnd(int value) {
   Node *newNode = new Node(value);
 
   if (LinkedList::head == nullptr) {
@@ -25,7 +25,7 @@ void LinkedList::addToEnd(int value) {
   LinkedList::length++;
 }
 
-void LinkedList::addToFront(int value) {
+void LinkedList::addFront(int value) {
   Node *newNode = new Node(value);
 
   if (LinkedList::head == nullptr) {

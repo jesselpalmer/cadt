@@ -18,47 +18,47 @@ void SizeTests::executeTest() {
   std::string testName = SizeTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
-  linkedList.addToFront(1);
-  linkedList.addToFront(30);
-  linkedList.addToFront(23);
+  linkedList.addFront(1);
+  linkedList.addFront(30);
+  linkedList.addFront(23);
   int size = linkedList.size();
 
   testing::Assert(3, size, testName);
 }
 
-class AddToFrontTests : public testing::Test {
+class AddFrontTests : public testing::Test {
  public:
   using Test::Test;
   void executeTest() override;
 };
 
-void AddToFrontTests::executeTest() {
-  std::string testName = AddToFrontTests::getTestName();
+void AddFrontTests::executeTest() {
+  std::string testName = AddFrontTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
-  linkedList.addToFront(193);
-  linkedList.addToFront(3232);
-  linkedList.addToFront(744);
-  linkedList.addToFront(93546);
+  linkedList.addFront(193);
+  linkedList.addFront(3232);
+  linkedList.addFront(744);
+  linkedList.addFront(93546);
   int firstValue = linkedList.getFirst();
 
   testing::Assert(93546, firstValue, testName);
 }
 
-class AddToEndTests : public testing::Test {
+class AddEndTests : public testing::Test {
  public:
   using Test::Test;
   void executeTest() override;
 };
 
-void AddToEndTests::executeTest() {
-  std::string testName = AddToEndTests::getTestName();
+void AddEndTests::executeTest() {
+  std::string testName = AddEndTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
-  linkedList.addToEnd(193);
-  linkedList.addToEnd(3232);
-  linkedList.addToEnd(744);
-  linkedList.addToEnd(93546);
+  linkedList.addEnd(193);
+  linkedList.addEnd(3232);
+  linkedList.addEnd(744);
+  linkedList.addEnd(93546);
   int firstValue = linkedList.getFirst();
 
   testing::Assert(193, firstValue, testName);
@@ -66,8 +66,8 @@ void AddToEndTests::executeTest() {
 
 void LinkedListTest::loadTests() {
   test::SizeTests* sizeTests = new test::SizeTests("should set the size correctly");
-  test::AddToFrontTests* addToFrontTests = new test::AddToFrontTests("should add to the front correctly");
-  test::AddToEndTests* addToEndTests = new test::AddToEndTests("should add to the end correctly");
+  test::AddFrontTests* addToFrontTests = new test::AddFrontTests("should add to the front correctly");
+  test::AddEndTests* addToEndTests = new test::AddEndTests("should add to the end correctly");
   std::vector<testing::Test*> linkedListTests = {sizeTests, addToFrontTests, addToEndTests};
   test::LinkedListTest::addTests(linkedListTests);
 }

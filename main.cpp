@@ -17,7 +17,7 @@ void perfTest() {
   auto start = high_resolution_clock::now();
 
   for (int i = 0; i < attempts; i++) {
-    linkedList.addToFront(i);
+    linkedList.addFront(i);
   }
 
   std::cout << linkedList.size() << std::endl;
