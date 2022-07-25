@@ -48,6 +48,10 @@ int LinkedList::getFirst() {
   return LinkedList::head->getValue();
 }
 
+bool LinkedList::isEmpty() {
+  return LinkedList::length == 0;
+}
+
 void LinkedList::removeFirst() {
   if (LinkedList::length > 0) {
     Node *firstNode = LinkedList::head;

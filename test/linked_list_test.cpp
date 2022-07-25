@@ -84,6 +84,24 @@ void GetFirstTests::executeTest() {
   testing::Assert(33245, firstValue, testName);
 }
 
+class IsEmptyTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void IsEmptyTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  testing::Assert(true, linkedList.isEmpty(), "should be empty on initialization");
+
+  linkedList.addFront(1);
+  linkedList.addFront(30);
+  linkedList.addFront(23);
+
+  testing::Assert(false, linkedList.isEmpty(), "should be false after adding values");
+}
+
 class SizeTests : public testing::Test {
  public:
   using Test::Test;
@@ -107,8 +125,9 @@ void LinkedListTest::loadTests() {
   test::AddEndTests* addEndTests = new test::AddEndTests("should add to the end");
   test::AddFrontTests* addFrontTests = new test::AddFrontTests("should add to the front");
   test::GetFirstTests* getFirstTests = new test::GetFirstTests("should get the first value");
+  test::IsEmptyTests* isEmptyTests = new test::IsEmptyTests("should be empty");
   test::SizeTests* sizeTests = new test::SizeTests("should get the size");
-  std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, getFirstTests, sizeTests};
+  std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, getFirstTests, isEmptyTests, sizeTests};
   test::LinkedListTest::addTests(linkedListTests);
 }
 
