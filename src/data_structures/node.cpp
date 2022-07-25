@@ -8,7 +8,11 @@
 
 namespace data_structures {
 
-Node::Node() {}
+Node::Node() {
+  Node::value = NULL;
+  Node::next = nullptr;
+  Node::prev = nullptr;
+}
 
 Node::Node(int value) {
   Node::value = value;
