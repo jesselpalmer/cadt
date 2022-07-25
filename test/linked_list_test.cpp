@@ -67,9 +67,9 @@ void AddEndTests::executeTest() {
 
 void LinkedListTest::loadTests() {
   test::SizeTests* sizeTests = new test::SizeTests("should set the size correctly");
-  test::AddFrontTests* addToFrontTests = new test::AddFrontTests("should add to the front correctly");
-  test::AddEndTests* addToEndTests = new test::AddEndTests("should add to the end correctly");
-  std::vector<testing::Test*> linkedListTests = {sizeTests, addToFrontTests, addToEndTests};
+  test::AddEndTests* addEndTests = new test::AddEndTests("should add to the end correctly");
+  test::AddFrontTests* addFrontTests = new test::AddFrontTests("should add to the front correctly");
+  std::vector<testing::Test*> linkedListTests = {sizeTests, addEndTests, addFrontTests};
   test::LinkedListTest::addTests(linkedListTests);
 }
 
