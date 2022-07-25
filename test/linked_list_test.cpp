@@ -9,6 +9,25 @@
 
 namespace test {
 
+class AddTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void AddTests::executeTest() {
+  std::string testName = AddTests::getTestName();
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  linkedList.add(5724);
+  linkedList.add(2356);
+  linkedList.add(456323);
+  linkedList.add(8765);
+  int firstValue = linkedList.getFirst();
+
+  testing::Assert(5724, firstValue, testName);
+}
+
 class AddEndTests : public testing::Test {
  public:
   using Test::Test;
@@ -67,9 +86,10 @@ void SizeTests::executeTest() {
 
 void LinkedListTest::loadTests() {
   test::SizeTests* sizeTests = new test::SizeTests("should set the size correctly");
+  test::AddTests* addTests = new test::AddTests("should add to the end correctly");
   test::AddEndTests* addEndTests = new test::AddEndTests("should add to the end correctly");
   test::AddFrontTests* addFrontTests = new test::AddFrontTests("should add to the front correctly");
-  std::vector<testing::Test*> linkedListTests = {sizeTests, addEndTests, addFrontTests};
+  std::vector<testing::Test*> linkedListTests = {sizeTests, addTests, addEndTests, addFrontTests};
   test::LinkedListTest::addTests(linkedListTests);
 }
 
