@@ -56,6 +56,7 @@ void LinkedList::removeFirst() {
   if (LinkedList::length > 0) {
     Node *firstNode = LinkedList::head;
     LinkedList::head = firstNode->getNext();
+    delete firstNode;
     LinkedList::length--;
   }
 }
