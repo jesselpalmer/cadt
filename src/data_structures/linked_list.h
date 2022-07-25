@@ -20,12 +20,16 @@ class LinkedList {
 
  public:
   LinkedList();
-  LinkedList(int value);
+  void add(int value);
   void addToEnd(int value);
   void addToFront(int value);
   int getFirst();
   int getLast();
+  bool isEmpty();
+  int remove(int value);
   int removeFirst();
+  int removeLast();
+  bool search(int value);
   int size() const;
   void toString();
 };

@@ -11,10 +11,6 @@ namespace data_structures {
 
 LinkedList::LinkedList() = default;
 
-LinkedList::LinkedList(int value) {
-  addToFront(value);
-}
-
 void LinkedList::addToEnd(int value) {
   Node *newNode = new Node(value);
 
@@ -44,15 +40,15 @@ void LinkedList::addToFront(int value) {
   LinkedList::length++;
 }
 
+int LinkedList::getFirst() {
+  return LinkedList::head->getValue();
+}
+
 int LinkedList::removeFirst() {
   Node *firstNode = LinkedList::head;
   LinkedList::head = firstNode->getNext();
   LinkedList::length--;
   return firstNode->getValue();
-}
-
-int LinkedList::getFirst() {
-  return LinkedList::head->getValue();
 }
 
 int LinkedList::size() const {
