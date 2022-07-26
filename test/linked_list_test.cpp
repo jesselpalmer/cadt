@@ -136,13 +136,13 @@ void SizeTests::executeTest() {
 }
 
 void LinkedListTest::loadTests() {
-  test::AddTests* addTests = new test::AddTests("add tests");
-  test::AddEndTests* addEndTests = new test::AddEndTests("addEnd tests");
-  test::AddFrontTests* addFrontTests = new test::AddFrontTests("addFront tests");
-  test::GetFirstTests* getFirstTests = new test::GetFirstTests("getFirst tests");
-  test::GetLastTests* getLastTests = new test::GetLastTests("getLast tests");
-  test::IsEmptyTests* isEmptyTests = new test::IsEmptyTests("isEmpty tests");
-  test::SizeTests* sizeTests = new test::SizeTests("size tests");
+  test::AddTests *addTests = new test::AddTests("add tests");
+  test::AddEndTests *addEndTests = new test::AddEndTests("addEnd tests");
+  test::AddFrontTests *addFrontTests = new test::AddFrontTests("addFront tests");
+  test::GetFirstTests *getFirstTests = new test::GetFirstTests("getFirst tests");
+  test::GetLastTests *getLastTests = new test::GetLastTests("getLast tests");
+  test::IsEmptyTests *isEmptyTests = new test::IsEmptyTests("isEmpty tests");
+  test::SizeTests *sizeTests = new test::SizeTests("size tests");
   std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, getFirstTests, getLastTests,
                                                  isEmptyTests, sizeTests};
   test::LinkedListTest::addTests(linkedListTests);
