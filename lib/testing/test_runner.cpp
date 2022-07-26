@@ -85,14 +85,14 @@ void TestRunner::testFailed(std::string testName) {
   TestRunner::incrementFailingTests();
   std::string redCheckmark = TestRunner::getColoredText("x", "red");
   std::string grayTestName = TestRunner::getColoredText(testName, "gray");
-  std::cout << "\t" << redCheckmark << " " << grayTestName << std::endl;
+  std::cout << "    " << redCheckmark << " " << grayTestName << std::endl;
 }
 
 void TestRunner::testPassed(std::string testName) {
   TestRunner::incrementPassingTests();
   std::string greenCheckmark = TestRunner::getColoredText("✓", "green");
   std::string grayTestName = TestRunner::getColoredText(testName, "gray");
-  std::cout << "\t" << greenCheckmark << " " << grayTestName << " " << std::endl;
+  std::cout << "    " << greenCheckmark << " " << grayTestName << " " << std::endl;
 }
 
 } // namespace testing

@@ -16,7 +16,6 @@ class AddTests : public testing::Test {
 };
 
 void AddTests::executeTest() {
-  std::string testName = AddTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
   linkedList.add(5724);
@@ -25,7 +24,7 @@ void AddTests::executeTest() {
   linkedList.add(8765);
   int firstValue = linkedList.getFirst();
 
-  testing::Assert(5724, firstValue, testName);
+  testing::Assert(5724, firstValue, "should add value to the front");
 }
 
 class AddEndTests : public testing::Test {
@@ -35,7 +34,6 @@ class AddEndTests : public testing::Test {
 };
 
 void AddEndTests::executeTest() {
-  std::string testName = AddEndTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
   linkedList.addEnd(193);
@@ -44,7 +42,7 @@ void AddEndTests::executeTest() {
   linkedList.addEnd(93546);
   int firstValue = linkedList.getFirst();
 
-  testing::Assert(193, firstValue, testName);
+  testing::Assert(193, firstValue, "should add value to the end");
 }
 
 class AddFrontTests : public testing::Test {
@@ -54,7 +52,6 @@ class AddFrontTests : public testing::Test {
 };
 
 void AddFrontTests::executeTest() {
-  std::string testName = AddFrontTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
   linkedList.addFront(193);
@@ -63,7 +60,7 @@ void AddFrontTests::executeTest() {
   linkedList.addFront(93546);
   int firstValue = linkedList.getFirst();
 
-  testing::Assert(93546, firstValue, testName);
+  testing::Assert(93546, firstValue, "should add value to the front");
 }
 
 class GetFirstTests : public testing::Test {
@@ -73,7 +70,6 @@ class GetFirstTests : public testing::Test {
 };
 
 void GetFirstTests::executeTest() {
-  std::string testName = GetFirstTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
   linkedList.addFront(2423);
@@ -81,7 +77,7 @@ void GetFirstTests::executeTest() {
   linkedList.addFront(33245);
   int firstValue = linkedList.getFirst();
 
-  testing::Assert(33245, firstValue, testName);
+  testing::Assert(33245, firstValue, "should get the first value");
 }
 
 class IsEmptyTests : public testing::Test {
@@ -109,7 +105,6 @@ class SizeTests : public testing::Test {
 };
 
 void SizeTests::executeTest() {
-  std::string testName = SizeTests::getTestName();
   data_structures::LinkedList linkedList = data_structures::LinkedList();
 
   linkedList.addFront(1);
@@ -117,16 +112,16 @@ void SizeTests::executeTest() {
   linkedList.addFront(23);
   int size = linkedList.size();
 
-  testing::Assert(3, size, testName);
+  testing::Assert(3, size, "should return size");
 }
 
 void LinkedListTest::loadTests() {
-  test::AddTests* addTests = new test::AddTests("should add to the end");
-  test::AddEndTests* addEndTests = new test::AddEndTests("should add to the end");
-  test::AddFrontTests* addFrontTests = new test::AddFrontTests("should add to the front");
-  test::GetFirstTests* getFirstTests = new test::GetFirstTests("should get the first value");
-  test::IsEmptyTests* isEmptyTests = new test::IsEmptyTests("should be empty");
-  test::SizeTests* sizeTests = new test::SizeTests("should get the size");
+  test::AddTests* addTests = new test::AddTests("add tests");
+  test::AddEndTests* addEndTests = new test::AddEndTests("addEnd tests");
+  test::AddFrontTests* addFrontTests = new test::AddFrontTests("addFront tests");
+  test::GetFirstTests* getFirstTests = new test::GetFirstTests("getFirst tests");
+  test::IsEmptyTests* isEmptyTests = new test::IsEmptyTests("isEmpty tests");
+  test::SizeTests* sizeTests = new test::SizeTests("size tests");
   std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, getFirstTests, isEmptyTests, sizeTests};
   test::LinkedListTest::addTests(linkedListTests);
 }

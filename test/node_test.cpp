@@ -16,12 +16,10 @@ class ConstructorTests : public testing::Test {
 };
 
 void ConstructorTests::executeTest() {
-  std::string testName = ConstructorTests::getTestName();
-
   data_structures::Node newNode = data_structures::Node(5);
   int value = newNode.getValue();
 
-  testing::Assert(5, value, testName);
+  testing::Assert(5, value, "should set value when using constructor");
 }
 
 class ValueTests : public testing::Test {
@@ -31,21 +29,20 @@ class ValueTests : public testing::Test {
 };
 
 void ValueTests::executeTest() {
-  std::string testName = ValueTests::getTestName();
   data_structures::Node newNode = data_structures::Node();
 
   newNode.setValue(50);
   int value = newNode.getValue();
-  testing::Assert(50, value, testName);
+  testing::Assert(50, value, "should set/get value");
 
   newNode.setValue(137);
   value = newNode.getValue();
-  testing::Assert(137, value, testName);
+  testing::Assert(137, value, "should change existing value using set/get");
 }
 
 void NodeTests::loadTests() {
-  test::ConstructorTests* constructorTests = new test::ConstructorTests("should create object using constructor correctly");
-  test::ValueTests* valueTests = new ValueTests("should set/get values correctly");
+  test::ConstructorTests* constructorTests = new test::ConstructorTests("constructor tests");
+  test::ValueTests* valueTests = new ValueTests("value tests");
   std::vector<testing::Test*> nodeTests = {constructorTests, valueTests};
   test::NodeTests::addTests(nodeTests);
 }

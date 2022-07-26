@@ -25,6 +25,7 @@ void TestSuite::executeTestSuite() {
   std::cout << "\n" << TestSuite::suiteName << std::endl;
 
   for (auto test : TestSuite::tests) {
+    std::cout << "  " << test->getTestName() << std::endl;
     test->executeTest();
   }
 }

@@ -48,6 +48,10 @@ int LinkedList::getFirst() {
   return LinkedList::head->getValue();
 }
 
+int LinkedList::getLast() {
+  return LinkedList::head->getValue();
+}
+
 bool LinkedList::isEmpty() {
   return LinkedList::length == 0;
 }

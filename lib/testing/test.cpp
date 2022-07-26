@@ -7,8 +7,6 @@
 
 namespace testing {
 
-Test::Test() = default;
-
 Test::Test(std::string testName) {
   Test::testName = testName;
 }
