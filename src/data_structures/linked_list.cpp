@@ -45,11 +45,19 @@ void LinkedList::addFront(int value) {
 }
 
 int LinkedList::getFirst() {
-  return LinkedList::head->getValue();
+  if (LinkedList::length > 0) {
+    return LinkedList::head->getValue();
+  } else {
+    return NULL;
+  }
 }
 
 int LinkedList::getLast() {
-  return LinkedList::head->getValue();
+  if (LinkedList::length > 0) {
+    return LinkedList::tail->getValue();
+  } else {
+    return NULL;
+  }
 }
 
 bool LinkedList::isEmpty() {
