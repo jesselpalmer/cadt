@@ -48,7 +48,7 @@ int LinkedList::getFirst() {
   if (LinkedList::length > 0) {
     return LinkedList::head->getValue();
   } else {
-    return NULL;
+    return 0;
   }
 }
 
@@ -56,12 +56,12 @@ int LinkedList::getLast() {
   if (LinkedList::length > 0) {
     return LinkedList::tail->getValue();
   } else {
-    return NULL;
+    return 0;
   }
 }
 
 bool LinkedList::isEmpty() {
-  return LinkedList::length == 0;
+  return LinkedList::head == nullptr;
 }
 
 void LinkedList::removeFirst() {
