@@ -44,6 +44,20 @@ void LinkedList::addFront(int value) {
   LinkedList::length++;
 }
 
+bool LinkedList::contains(int value) {
+  Node *node = LinkedList::head;
+
+  while (node != nullptr) {
+    if (node->getValue() == value) {
+      return true;
+    }
+
+    node = node->getNext();
+  }
+
+  return false;
+}
+
 int LinkedList::getFirst() {
   if (LinkedList::length > 0) {
     return LinkedList::head->getValue();

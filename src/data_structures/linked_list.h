@@ -23,10 +23,10 @@ class LinkedList {
   void add(int value);
   void addEnd(int value);
   void addFront(int value);
+  bool contains(int value);
   int getFirst();
   int getLast();
   bool isEmpty();
-  void remove(int value);
   void removeFirst();
   void removeLast();
   bool search(int value);

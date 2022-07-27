@@ -63,6 +63,30 @@ void AddFrontTests::executeTest() {
   testing::Assert(93546, firstValue, "should add value to the front");
 }
 
+class ContainsTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void ContainsTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  testing::Assert(false, linkedList.contains(33123), "should not contain value when list is empty");
+
+  linkedList.addFront(193);
+  linkedList.addFront(3232);
+  linkedList.addFront(744);
+  linkedList.addFront(93546);
+
+  testing::Assert(false, linkedList.contains(4), "should not contain value");
+  testing::Assert(true, linkedList.contains(744), "should contain value");
+
+  linkedList.removeFirst();
+
+  testing::Assert(true, linkedList.contains(3232), "should contain value after one is removed");
+}
+
 class GetFirstTests : public testing::Test {
  public:
   using Test::Test;
@@ -88,7 +112,7 @@ class GetLastTests : public testing::Test {
 
 void GetLastTests::executeTest() {
   data_structures::LinkedList linkedList = data_structures::LinkedList();
-  testing::Assert(NULL, linkedList.getLast(), "should return NULL if there are no values in list");
+  testing::Assert(0, linkedList.getLast(), "should return 0 if there are no values in list");
 
   linkedList.addFront(13019);
   linkedList.add(942482);
@@ -138,13 +162,14 @@ void SizeTests::executeTest() {
 void LinkedListTest::loadTests() {
   test::AddTests *addTests = new test::AddTests("add tests");
   test::AddEndTests *addEndTests = new test::AddEndTests("addEnd tests");
+  test::ContainsTests *containsTests = new test::ContainsTests("containsTests tests");
   test::AddFrontTests *addFrontTests = new test::AddFrontTests("addFront tests");
   test::GetFirstTests *getFirstTests = new test::GetFirstTests("getFirst tests");
   test::GetLastTests *getLastTests = new test::GetLastTests("getLast tests");
   test::IsEmptyTests *isEmptyTests = new test::IsEmptyTests("isEmpty tests");
   test::SizeTests *sizeTests = new test::SizeTests("size tests");
-  std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, getFirstTests, getLastTests,
-                                                 isEmptyTests, sizeTests};
+  std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, containsTests, getFirstTests,
+                                                 getLastTests, isEmptyTests, sizeTests};
   test::LinkedListTest::addTests(linkedListTests);
 }
 
