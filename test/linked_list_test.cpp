@@ -142,6 +142,45 @@ void IsEmptyTests::executeTest() {
   testing::Assert(false, linkedList.isEmpty(), "should be false after adding values");
 }
 
+class RemoveTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void RemoveTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  linkedList.addFront(124231);
+  linkedList.addFront(3442);
+  linkedList.add(44342);
+  linkedList.addFront(9842421);
+  linkedList.addEnd(544359);
+  testing::Assert(true, linkedList.contains(9842421), "should contain value before being removed");
+
+  linkedList.remove(9842421);
+  testing::Assert(false, linkedList.contains(9842421), "shouldn't contain value after being removed");
+
+  int size = linkedList.size();
+  testing::Assert(4, size, "should be correct size after value removed");
+
+  testing::Assert(true, linkedList.contains(544359), "should contain last value before being removed");
+
+  linkedList.remove(544359);
+  testing::Assert(false, linkedList.contains(544359), "shouldn't contain last value after being removed");
+
+  size = linkedList.size();
+  testing::Assert(3, size, "should be correct size after last value removed");
+
+  testing::Assert(true, linkedList.contains(3442), "should contain first value before being removed");
+
+  linkedList.remove(3442);
+  testing::Assert(false, linkedList.contains(3442), "shouldn't contain last value after being removed");
+
+  size = linkedList.size();
+  testing::Assert(2, size, "should be correct size after last value removed");
+}
+
 class SizeTests : public testing::Test {
  public:
   using Test::Test;
@@ -162,14 +201,15 @@ void SizeTests::executeTest() {
 void LinkedListTest::loadTests() {
   test::AddTests *addTests = new test::AddTests("add tests");
   test::AddEndTests *addEndTests = new test::AddEndTests("addEnd tests");
-  test::ContainsTests *containsTests = new test::ContainsTests("containsTests tests");
+  test::ContainsTests *containsTests = new test::ContainsTests("contains tests");
   test::AddFrontTests *addFrontTests = new test::AddFrontTests("addFront tests");
   test::GetFirstTests *getFirstTests = new test::GetFirstTests("getFirst tests");
   test::GetLastTests *getLastTests = new test::GetLastTests("getLast tests");
   test::IsEmptyTests *isEmptyTests = new test::IsEmptyTests("isEmpty tests");
+  test::RemoveTests *removeTests = new test::RemoveTests("remove tests");
   test::SizeTests *sizeTests = new test::SizeTests("size tests");
   std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, containsTests, getFirstTests,
-                                                 getLastTests, isEmptyTests, sizeTests};
+                                                 getLastTests, isEmptyTests, removeTests, sizeTests};
   test::LinkedListTest::addTests(linkedListTests);
 }
 

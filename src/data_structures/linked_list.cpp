@@ -22,6 +22,7 @@ void LinkedList::addEnd(int value) {
     LinkedList::head = newNode;
     LinkedList::tail = newNode;
   } else {
+    newNode->setPrev(LinkedList::tail);
     LinkedList::tail->setNext(newNode);
     LinkedList::tail = newNode;
   }
@@ -37,6 +38,7 @@ void LinkedList::addFront(int value) {
     LinkedList::tail = newNode;
   } else {
     newNode->setNext(LinkedList::head);
+    LinkedList::head->setPrev(newNode);
     LinkedList::head = newNode;
   }
 
@@ -75,6 +77,29 @@ int LinkedList::getLast() {
 
 bool LinkedList::isEmpty() {
   return LinkedList::head == nullptr;
+}
+
+int LinkedList::remove(int value) {
+  Node *node = LinkedList::head;
+
+  while (node != nullptr) {
+    if (node->getValue() == value && LinkedList::head == node) {
+      LinkedList::head = LinkedList::head->getNext();
+      delete node;
+      LinkedList::length--;
+      return value;
+    } else if (node->getValue() == value && LinkedList::head != node) {
+      Node *prevNode = node->getPrev();
+      prevNode->setNext(node->getNext());
+      LinkedList::length--;
+      delete node;
+      return value;
+    }
+
+    node = node->getNext();
+  }
+
+  return 0;
 }
 
 void LinkedList::removeFirst() {
