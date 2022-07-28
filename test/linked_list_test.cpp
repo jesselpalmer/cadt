@@ -157,8 +157,7 @@ void RemoveTests::executeTest() {
   linkedList.addFront(9842421);
   linkedList.addEnd(544359);
   testing::Assert(true, linkedList.contains(9842421), "should contain value before being removed");
-
-  linkedList.remove(9842421);
+  testing::Assert(9842421, linkedList.remove(9842421), "should return removed value");
   testing::Assert(false, linkedList.contains(9842421), "shouldn't contain value after being removed");
 
   int size = linkedList.size();
@@ -179,6 +178,8 @@ void RemoveTests::executeTest() {
 
   size = linkedList.size();
   testing::Assert(2, size, "should be correct size after last value removed");
+
+  testing::Assert(0, linkedList.remove(3442), "should return 0 if nothing is removed");
 }
 
 class SizeTests : public testing::Test {
