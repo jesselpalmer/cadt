@@ -37,7 +37,6 @@ void LinkedList::addFront(int value) {
     LinkedList::tail = newNode;
   } else {
     newNode->setNext(LinkedList::head);
-    LinkedList::head->setPrev(newNode);
     LinkedList::head = newNode;
   }
 
