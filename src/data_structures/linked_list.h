@@ -28,8 +28,8 @@ class LinkedList {
   int getLast();
   bool isEmpty();
   int remove(int value);
-  void removeFirst();
-  void removeLast();
+  int removeFirst();
+  int removeLast();
   bool search(int value);
   int size() const;
   void toString();

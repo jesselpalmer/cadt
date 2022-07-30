@@ -26,4 +26,8 @@ add_executable(cadt
         test/linked_list_test.cpp
         test/linked_list_test.h
         benchmark/linked_list_benchmark.cpp
-        benchmark/linked_list_benchmark.h)
+        benchmark/linked_list_benchmark.h
+        src/data_structures/queue.cpp
+        src/data_structures/queue.h
+        test/queue_test.cpp
+        test/queue_test.h)

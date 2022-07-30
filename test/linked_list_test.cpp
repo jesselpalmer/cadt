@@ -142,6 +142,24 @@ void IsEmptyTests::executeTest() {
   testing::Assert(false, linkedList.isEmpty(), "should be false after adding values");
 }
 
+class RemoveFirstTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void RemoveFirstTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  linkedList.addFront(3313);
+  linkedList.addFront(3342);
+  linkedList.addFront(998987);
+
+  testing::Assert(998987, linkedList.removeFirst(), "should remove first value");
+  testing::Assert(2, linkedList.size(), "should be correct value after value is removed");
+  testing::Assert(false, linkedList.contains(998987), "should no longer contain first element");
+}
+
 class RemoveTests : public testing::Test {
  public:
   using Test::Test;
@@ -208,9 +226,10 @@ void LinkedListTest::loadTests() {
   test::GetLastTests *getLastTests = new test::GetLastTests("getLast tests");
   test::IsEmptyTests *isEmptyTests = new test::IsEmptyTests("isEmpty tests");
   test::RemoveTests *removeTests = new test::RemoveTests("remove tests");
+  test::RemoveFirstTests *removeFirstTests = new test::RemoveFirstTests("remove first tests");
   test::SizeTests *sizeTests = new test::SizeTests("size tests");
   std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, containsTests, getFirstTests,
-                                                 getLastTests, isEmptyTests, removeTests, sizeTests};
+                                                 getLastTests, isEmptyTests, removeTests, removeFirstTests, sizeTests};
   test::LinkedListTest::addTests(linkedListTests);
 }
 
