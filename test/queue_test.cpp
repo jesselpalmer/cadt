@@ -139,4 +139,4 @@ QueueTests::QueueTests() {
   loadTests();
 }
 
-} // queue_test test
+} // queue_test namespace

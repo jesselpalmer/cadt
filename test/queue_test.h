@@ -19,6 +19,6 @@ class QueueTests : public testing::TestSuite {
   void executeTestSuite();
 };
 
-} // queue_test test
+} // queue_test namespace
 
 #endif //CADT_TEST_QUEUE_TEST_H_
