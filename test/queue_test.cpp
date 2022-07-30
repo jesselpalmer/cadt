@@ -118,7 +118,6 @@ void SizeTests::executeTest() {
   queue.pop();
   queue.push(241313);
   queue.pop();
-
   int size = queue.size();
 
   testing::Assert(2, size, "should return size");
