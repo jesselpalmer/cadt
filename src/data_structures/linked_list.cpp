@@ -102,13 +102,18 @@ int LinkedList::remove(int value) {
   return 0;
 }
 
-void LinkedList::removeFirst() {
+int LinkedList::removeFirst() {
+  int value = 0;
+
   if (LinkedList::length > 0) {
     Node *firstNode = LinkedList::head;
+    value = LinkedList::head->getValue();
     LinkedList::head = firstNode->getNext();
     delete firstNode;
     LinkedList::length--;
   }
+
+  return value;
 }
 
 int LinkedList::size() const {

@@ -9,6 +9,7 @@
 #include "ds_test_runner.h"
 #include "linked_list_test.h"
 #include "node_test.h"
+#include "queue_test.h"
 
 namespace test {
 
@@ -19,7 +20,8 @@ DSTestRunner::DSTestRunner() {
 void DSTestRunner::loadTestSuites() {
   testing::TestSuite linkedListTest = test::LinkedListTest();
   testing::TestSuite nodeTests = test::NodeTests();
-  std::vector<testing::TestSuite> testSuites = {linkedListTest, nodeTests};
+  testing::TestSuite queueTests = queue_test::QueueTests();
+  std::vector<testing::TestSuite> testSuites = {linkedListTest, nodeTests, queueTests};
   DSTestRunner::addTestSuites(testSuites);
 }
 
