@@ -4,10 +4,10 @@
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
 #include "node_test.h"
-#include "../src/data_structures/node.h"
-#include "../lib/testing/test_assert.h"
+#include "../../src/data_structures/node.h"
+#include "../../lib/testing/test_assert.h"
 
-namespace test {
+namespace node_test {
 
 class ConstructorTests : public testing::Test {
  public:
@@ -41,15 +41,15 @@ void ValueTests::executeTest() {
 }
 
 void NodeTests::loadTests() {
-  test::ConstructorTests* constructorTests = new test::ConstructorTests("constructor tests");
-  test::ValueTests* valueTests = new ValueTests("value tests");
+  ConstructorTests* constructorTests = new ConstructorTests("constructor tests");
+  ValueTests* valueTests = new ValueTests("value tests");
   std::vector<testing::Test*> nodeTests = {constructorTests, valueTests};
-  test::NodeTests::addTests(nodeTests);
+  NodeTests::addTests(nodeTests);
 }
 
 NodeTests::NodeTests() {
-  test::NodeTests::setSuiteName("Node tests");
+  NodeTests::setSuiteName("Node tests");
   loadTests();
 }
 
-} // namespace test
+} // namespace node_test

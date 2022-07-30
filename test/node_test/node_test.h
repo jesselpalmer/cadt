@@ -3,22 +3,24 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
-#ifndef CADT_TEST_QUEUE_TEST_H_
-#define CADT_TEST_QUEUE_TEST_H_
+#ifndef CADT_TEST_NODE_TESTS_H
+#define CADT_TEST_NODE_TESTS_H
 
-#include "../lib/testing/test_suite.h"
+#include <iostream>
 
-namespace queue_test {
+#include "../../lib/testing/test_suite.h"
 
-class QueueTests : public testing::TestSuite {
+namespace node_test {
+
+class NodeTests : public testing::TestSuite {
  private:
   void loadTests();
 
  public:
-  QueueTests();
+  NodeTests();
   void executeTestSuite();
 };
 
-} // queue_test namespace
+} // namespace node_test
 
-#endif //CADT_TEST_QUEUE_TEST_H_
+#endif // CADT_TEST_NODE_TESTS_H

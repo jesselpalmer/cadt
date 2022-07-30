@@ -4,10 +4,10 @@
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
 #include "linked_list_test.h"
-#include "../src/data_structures/linked_list.h"
-#include "../lib/testing/test_assert.h"
+#include "../../src/data_structures/linked_list.h"
+#include "../../lib/testing/test_assert.h"
 
-namespace test {
+namespace linked_list_test {
 
 class AddTests : public testing::Test {
  public:
@@ -218,24 +218,24 @@ void SizeTests::executeTest() {
 }
 
 void LinkedListTest::loadTests() {
-  test::AddTests *addTests = new test::AddTests("add tests");
-  test::AddEndTests *addEndTests = new test::AddEndTests("addEnd tests");
-  test::ContainsTests *containsTests = new test::ContainsTests("contains tests");
-  test::AddFrontTests *addFrontTests = new test::AddFrontTests("addFront tests");
-  test::GetFirstTests *getFirstTests = new test::GetFirstTests("getFirst tests");
-  test::GetLastTests *getLastTests = new test::GetLastTests("getLast tests");
-  test::IsEmptyTests *isEmptyTests = new test::IsEmptyTests("isEmpty tests");
-  test::RemoveTests *removeTests = new test::RemoveTests("remove tests");
-  test::RemoveFirstTests *removeFirstTests = new test::RemoveFirstTests("remove first tests");
-  test::SizeTests *sizeTests = new test::SizeTests("size tests");
+  AddTests *addTests = new AddTests("add tests");
+  AddEndTests *addEndTests = new AddEndTests("addEnd tests");
+  ContainsTests *containsTests = new ContainsTests("contains tests");
+  AddFrontTests *addFrontTests = new AddFrontTests("addFront tests");
+  GetFirstTests *getFirstTests = new GetFirstTests("getFirst tests");
+  GetLastTests *getLastTests = new GetLastTests("getLast tests");
+  IsEmptyTests *isEmptyTests = new IsEmptyTests("isEmpty tests");
+  RemoveTests *removeTests = new RemoveTests("remove tests");
+  RemoveFirstTests *removeFirstTests = new RemoveFirstTests("remove first tests");
+  SizeTests *sizeTests = new SizeTests("size tests");
   std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, containsTests, getFirstTests,
                                                  getLastTests, isEmptyTests, removeTests, removeFirstTests, sizeTests};
-  test::LinkedListTest::addTests(linkedListTests);
+  LinkedListTest::addTests(linkedListTests);
 }
 
 LinkedListTest::LinkedListTest() {
-  test::LinkedListTest::setSuiteName("LinkedList tests");
+  LinkedListTest::setSuiteName("LinkedList tests");
   loadTests();
 }
 
-} // namespace test
+} // namespace linked_list_test

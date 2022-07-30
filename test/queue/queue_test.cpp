@@ -4,8 +4,8 @@
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
 #include "queue_test.h"
-#include "../src/data_structures/queue.h"
-#include "../lib/testing/test_assert.h"
+#include "../../src/data_structures/queue.h"
+#include "../../lib/testing/test_assert.h"
 
 namespace queue_test {
 
@@ -124,12 +124,12 @@ void SizeTests::executeTest() {
 }
 
 void QueueTests::loadTests() {
-  queue_test::BackTests *backTests = new queue_test::BackTests("back tests");
-  queue_test::EmptyTests *emptyTests = new queue_test::EmptyTests("empty tests");
-  queue_test::FrontTests *frontTests = new queue_test::FrontTests("front tests");
-  queue_test::PopTests *popTests = new queue_test::PopTests("pop tests");
-  queue_test::PushTests *pushTests = new queue_test::PushTests("push tests");
-  queue_test::SizeTests *sizeTests = new queue_test::SizeTests("size tests");
+  BackTests *backTests = new BackTests("back tests");
+  EmptyTests *emptyTests = new EmptyTests("empty tests");
+  FrontTests *frontTests = new FrontTests("front tests");
+  PopTests *popTests = new PopTests("pop tests");
+  PushTests *pushTests = new PushTests("push tests");
+  SizeTests *sizeTests = new SizeTests("size tests");
   std::vector<testing::Test*> queueTests = {backTests, emptyTests, frontTests, popTests, pushTests, sizeTests};
   queue_test::QueueTests::addTests(queueTests);
 }
@@ -139,4 +139,4 @@ QueueTests::QueueTests() {
   loadTests();
 }
 
-} // queue_test namespace
+} // namespace queue_test

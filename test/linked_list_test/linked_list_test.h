@@ -6,9 +6,9 @@
 #ifndef CADT_TEST_LINKED_LIST_TEST_H_
 #define CADT_TEST_LINKED_LIST_TEST_H_
 
-#include "../lib/testing/test_suite.h"
+#include "../../lib/testing/test_suite.h"
 
-namespace test {
+namespace linked_list_test {
 
 class LinkedListTest : public testing::TestSuite {
  private:
@@ -19,6 +19,6 @@ class LinkedListTest : public testing::TestSuite {
   void executeTestSuite();
 };
 
-}
+} // namespace linked_list_test
 
 #endif //CADT_TEST_LINKED_LIST_TEST_H_
