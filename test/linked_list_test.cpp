@@ -158,7 +158,6 @@ void RemoveFirstTests::executeTest() {
   testing::Assert(998987, linkedList.removeFirst(), "should remove first value");
   testing::Assert(2, linkedList.size(), "should be correct value after value is removed");
   testing::Assert(false, linkedList.contains(998987), "should no longer contain first element");
-  //testing::Assert(false, linkedList.isEmpty(), "should be false after adding values");
 }
 
 class RemoveTests : public testing::Test {
