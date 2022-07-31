@@ -3,6 +3,8 @@
 // Use of this source code is governed by the MIT license that can be
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
+#include <iostream>
+
 #include "test/ds_test_runner.h"
 #include "benchmark/linked_list_benchmark.h"
 
@@ -15,9 +17,11 @@ int main(int argc, char *argv[]) {
 
   if (firstArg == "--test") {
     test::DSTestRunner().execute();
-  } else {
+  } else if (firstArg == "--benchmark") {
     benchmark::LinkedListBenchmark *linkedListBenchmark = new benchmark::LinkedListBenchmark();
     linkedListBenchmark->perfTest();
+  } else {
+    std::cout << "Nothing to see here!" << std::endl;
   }
 
   return 0;
