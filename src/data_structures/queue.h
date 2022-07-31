@@ -10,18 +10,13 @@
 
 namespace data_structures {
 
-class Queue {
- private:
-  LinkedList elements;
-
+class Queue : public data_structures::LinkedList {
  public:
-  Queue();
   int back();
   bool empty();
   int front();
   int pop();
   void push(int value);
-  int size();
 };
 
 } // namespace data_structures
