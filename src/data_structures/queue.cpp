@@ -11,10 +11,6 @@ int Queue::back() {
   return Queue::getLast();
 }
 
-bool Queue::empty() {
-  return Queue::isEmpty();
-}
-
 int Queue::front() {
   return Queue::getFirst();
 }

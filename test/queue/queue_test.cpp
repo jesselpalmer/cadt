@@ -29,24 +29,6 @@ void BackTests::executeTest() {
   testing::Assert(98765, lastValue, "should get last value");
 }
 
-class EmptyTests : public testing::Test {
- public:
-  using Test::Test;
-  void executeTest() override;
-};
-
-void EmptyTests::executeTest() {
-  data_structures::Queue queue = data_structures::Queue();
-
-  testing::Assert(true, queue.empty(), "should be empty on initialization");
-
-  queue.push(1);
-  queue.push(30);
-  queue.push(23);
-
-  testing::Assert(false, queue.empty(), "should be false after adding values");
-}
-
 class FrontTests : public testing::Test {
  public:
   using Test::Test;
@@ -125,12 +107,11 @@ void SizeTests::executeTest() {
 
 void QueueTests::loadTests() {
   BackTests *backTests = new BackTests("back tests");
-  EmptyTests *emptyTests = new EmptyTests("empty tests");
   FrontTests *frontTests = new FrontTests("front tests");
   PopTests *popTests = new PopTests("pop tests");
   PushTests *pushTests = new PushTests("push tests");
   SizeTests *sizeTests = new SizeTests("size tests");
-  std::vector<testing::Test*> queueTests = {backTests, emptyTests, frontTests, popTests, pushTests, sizeTests};
+  std::vector<testing::Test*> queueTests = {backTests, frontTests, popTests, pushTests, sizeTests};
   queue_test::QueueTests::addTests(queueTests);
 }
 

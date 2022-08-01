@@ -13,7 +13,6 @@ namespace data_structures {
 class Queue : public data_structures::LinkedList {
  public:
   int back();
-  bool empty();
   int front();
   int pop();
   void push(int value);
