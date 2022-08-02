@@ -176,7 +176,7 @@ void PeekTests::executeTest() {
   testing::Assert(true, linkedList.isEmpty(), "should be empty on initialization");
 
   linkedList.addFront(3342412132);
-  linkedList.addFront(-34350929402);
+  linkedList.addFront(-343529402);
   linkedList.addFront(535342424);
 
   testing::Assert(535342424, linkedList.peek(), "should return first value, but still should exist in list");
