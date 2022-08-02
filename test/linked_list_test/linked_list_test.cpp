@@ -272,7 +272,7 @@ void ToStringTests::executeTest() {
   linkedList.addFront(-535424);
   std::string str = linkedList.toString();
 
-  testing::Assert("[-535424, 90099, 42323]", str, "should return size");
+  testing::Assert("[-535424, 90099, 42323]", str, "should return a string");
 }
 
 void LinkedListTest::loadTests() {
