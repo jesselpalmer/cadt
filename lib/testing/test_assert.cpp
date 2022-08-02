@@ -16,7 +16,19 @@ Assert::Assert(int item1, int item2, std::string testName) {
   }
 }
 
+Assert::Assert(std::string item1, std::string item2, std::string testName) {
+  if (compare(item1, item2)) {
+    TestRunner::testPassed(testName);
+  } else {
+    TestRunner::testFailed(testName);
+  }
+}
+
 bool Assert::compare(int item1, int item2) {
+  return item1 == item2;
+}
+
+bool Assert::compare(std::string item1, std::string item2) {
   return item1 == item2;
 }
 

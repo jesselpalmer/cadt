@@ -239,6 +239,23 @@ void SizeTests::executeTest() {
   testing::Assert(3, size, "should return size");
 }
 
+class ToStringTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void ToStringTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  linkedList.addFront(42323);
+  linkedList.addFront(90099);
+  linkedList.addFront(-535424);
+  std::string str = linkedList.toString();
+
+  testing::Assert("[-535424, 90099, 42323]", str, "should return size");
+}
+
 void LinkedListTest::loadTests() {
   AddTests *addTests = new AddTests("add tests");
   AddEndTests *addEndTests = new AddEndTests("addEnd tests");
@@ -251,9 +268,11 @@ void LinkedListTest::loadTests() {
   RemoveTests *removeTests = new RemoveTests("remove tests");
   RemoveFirstTests *removeFirstTests = new RemoveFirstTests("remove first tests");
   SizeTests *sizeTests = new SizeTests("size tests");
+  ToStringTests *toStringTests = new ToStringTests("toString tests");
+
   std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, clearTests, containsTests,
                                                  getFirstTests, getLastTests, isEmptyTests, removeTests,
-                                                 removeFirstTests, sizeTests};
+                                                 removeFirstTests, sizeTests, toStringTests};
   LinkedListTest::addTests(linkedListTests);
 }
 

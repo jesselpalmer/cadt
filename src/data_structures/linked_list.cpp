@@ -131,13 +131,22 @@ int LinkedList::size() const {
   return LinkedList::length;
 }
 
-void LinkedList::toString() {
+std::string LinkedList::toString() {
+  std::string resultStr = "[";
   Node *currentNode = LinkedList::head;
 
   while (currentNode != nullptr) {
-    std::cout << currentNode->getValue() << std::endl;
+    resultStr += std::to_string(currentNode->getValue());
     currentNode = currentNode->getNext();
+
+    if (currentNode != nullptr) {
+      resultStr += ", ";
+    }
   }
+
+  resultStr += "]";
+
+  return resultStr;
 }
 
 } // namespace data_structures

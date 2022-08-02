@@ -33,7 +33,7 @@ class LinkedList {
   int removeLast();
   bool search(int value);
   int size() const;
-  void toString();
+  std::string toString();
 };
 
 } // namespace data_structures
