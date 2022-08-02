@@ -10,12 +10,21 @@
 
 namespace data_structures {
 
+// Implementation of a queue data structure using a linked list.
 class Queue : public data_structures::LinkedList {
  public:
+
+  // Returns, but doesn't remove, the last value in the queue.
   int back();
-  int front();
+
+  // Removes and returns the first value in the queue.
   int dequeue();
+
+  // Adds a value to the back of the queue.
   void enqueue(int value);
+
+  // Returns, but doesn't remove, the first value in the queue.
+  int front();
 };
 
 } // namespace data_structures
