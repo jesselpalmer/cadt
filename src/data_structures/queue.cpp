@@ -11,16 +11,16 @@ int Queue::back() {
   return Queue::getLast();
 }
 
-int Queue::front() {
-  return Queue::getFirst();
-}
-
-int Queue::pop() {
+int Queue::dequeue() {
   return Queue::removeFirst();
 }
 
-void Queue::push(int value) {
+void Queue::enqueue(int value) {
   Queue::addEnd(value);
+}
+
+int Queue::front() {
+  return Queue::getFirst();
 }
 
 } // namespace data_structures

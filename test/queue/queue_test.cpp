@@ -18,15 +18,52 @@ class BackTests : public testing::Test {
 void BackTests::executeTest() {
   data_structures::Queue queue = data_structures::Queue();
 
-  queue.push(131424);
-  queue.pop();
-  queue.push(421313);
-  queue.push(4223113);
-  queue.push(98765);
-  queue.pop();
+  queue.enqueue(131424);
+  queue.dequeue();
+  queue.enqueue(421313);
+  queue.enqueue(4223113);
+  queue.enqueue(98765);
+  queue.dequeue();
   int lastValue = queue.back();
 
   testing::Assert(98765, lastValue, "should get last value");
+}
+
+class DequeueTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void DequeueTests::executeTest() {
+  data_structures::Queue queue = data_structures::Queue();
+
+  queue.enqueue(5724);
+  queue.enqueue(2356);
+  queue.enqueue(456323);
+  queue.enqueue(8765);
+  int firstValue = queue.dequeue();
+
+  testing::Assert(5724, firstValue, "should remove and return the first value");
+  testing::Assert(3, queue.size(), "should have correct size after first value is popped");
+}
+
+class EnqueueTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void EnqueueTests::executeTest() {
+  data_structures::Queue queue = data_structures::Queue();
+
+  queue.enqueue(5724);
+  queue.enqueue(2356);
+  queue.enqueue(456323);
+  queue.enqueue(8765);
+  int firstValue = queue.front();
+
+  testing::Assert(5724, firstValue, "should add value to the front");
 }
 
 class FrontTests : public testing::Test {
@@ -38,51 +75,14 @@ class FrontTests : public testing::Test {
 void FrontTests::executeTest() {
   data_structures::Queue queue = data_structures::Queue();
 
-  queue.push(131424);
-  queue.pop();
-  queue.push(421313);
-  queue.push(4223113);
-  queue.pop();
+  queue.enqueue(131424);
+  queue.dequeue();
+  queue.enqueue(421313);
+  queue.enqueue(4223113);
+  queue.dequeue();
   int firstValue = queue.front();
 
   testing::Assert(4223113, firstValue, "should get first value");
-}
-
-class PopTests : public testing::Test {
- public:
-  using Test::Test;
-  void executeTest() override;
-};
-
-void PopTests::executeTest() {
-  data_structures::Queue queue = data_structures::Queue();
-
-  queue.push(5724);
-  queue.push(2356);
-  queue.push(456323);
-  queue.push(8765);
-  int firstValue = queue.pop();
-
-  testing::Assert(5724, firstValue, "should remove and return the first value");
-  testing::Assert(3, queue.size(), "should have correct size after first value is popped");
-}
-
-class PushTests : public testing::Test {
- public:
-  using Test::Test;
-  void executeTest() override;
-};
-
-void PushTests::executeTest() {
-  data_structures::Queue queue = data_structures::Queue();
-
-  queue.push(5724);
-  queue.push(2356);
-  queue.push(456323);
-  queue.push(8765);
-  int firstValue = queue.front();
-
-  testing::Assert(5724, firstValue, "should add value to the front");
 }
 
 class SizeTests : public testing::Test {
@@ -94,12 +94,12 @@ class SizeTests : public testing::Test {
 void SizeTests::executeTest() {
   data_structures::Queue queue = data_structures::Queue();
 
-  queue.push(1212313);
-  queue.push(53534);
-  queue.push(99999);
-  queue.pop();
-  queue.push(241313);
-  queue.pop();
+  queue.enqueue(1212313);
+  queue.enqueue(53534);
+  queue.enqueue(99999);
+  queue.dequeue();
+  queue.enqueue(241313);
+  queue.dequeue();
   int size = queue.size();
 
   testing::Assert(2, size, "should return size");
@@ -107,11 +107,12 @@ void SizeTests::executeTest() {
 
 void QueueTests::loadTests() {
   BackTests *backTests = new BackTests("back tests");
+  DequeueTests *dequeueTests = new DequeueTests("dequeue tests");
+  EnqueueTests *enqueueTests = new EnqueueTests("enqueue tests");
   FrontTests *frontTests = new FrontTests("front tests");
-  PopTests *popTests = new PopTests("pop tests");
-  PushTests *pushTests = new PushTests("push tests");
   SizeTests *sizeTests = new SizeTests("size tests");
-  std::vector<testing::Test*> queueTests = {backTests, frontTests, popTests, pushTests, sizeTests};
+
+  std::vector<testing::Test*> queueTests = {backTests, frontTests, dequeueTests, enqueueTests, sizeTests};
   queue_test::QueueTests::addTests(queueTests);
 }
 

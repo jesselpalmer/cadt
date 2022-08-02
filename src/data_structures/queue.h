@@ -14,8 +14,8 @@ class Queue : public data_structures::LinkedList {
  public:
   int back();
   int front();
-  int pop();
-  void push(int value);
+  int dequeue();
+  void enqueue(int value);
 };
 
 } // namespace data_structures
