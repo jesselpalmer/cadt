@@ -23,6 +23,7 @@ class LinkedList {
   void add(int value);
   void addEnd(int value);
   void addFront(int value);
+  void clear();
   bool contains(int value);
   int getFirst();
   int getLast();

@@ -63,6 +63,28 @@ void AddFrontTests::executeTest() {
   testing::Assert(93546, firstValue, "should add value to the front");
 }
 
+class ClearTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void ClearTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  linkedList.addFront(90210);
+  linkedList.addFront(213139);
+  linkedList.addFront(39999);
+  linkedList.addFront(-2131344);
+
+  testing::Assert(true, linkedList.contains(213139), "should contain value before being cleared");
+
+  linkedList.clear();
+
+  testing::Assert(0, linkedList.size(), "should have 0 size after being cleared");
+  testing::Assert(false, linkedList.contains(213139), "should not contain value after being cleared");
+}
+
 class ContainsTests : public testing::Test {
  public:
   using Test::Test;
@@ -220,6 +242,7 @@ void SizeTests::executeTest() {
 void LinkedListTest::loadTests() {
   AddTests *addTests = new AddTests("add tests");
   AddEndTests *addEndTests = new AddEndTests("addEnd tests");
+  ClearTests *clearTests = new ClearTests("clear tests");
   ContainsTests *containsTests = new ContainsTests("contains tests");
   AddFrontTests *addFrontTests = new AddFrontTests("addFront tests");
   GetFirstTests *getFirstTests = new GetFirstTests("getFirst tests");
@@ -228,8 +251,9 @@ void LinkedListTest::loadTests() {
   RemoveTests *removeTests = new RemoveTests("remove tests");
   RemoveFirstTests *removeFirstTests = new RemoveFirstTests("remove first tests");
   SizeTests *sizeTests = new SizeTests("size tests");
-  std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, containsTests, getFirstTests,
-                                                 getLastTests, isEmptyTests, removeTests, removeFirstTests, sizeTests};
+  std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, clearTests, containsTests,
+                                                 getFirstTests, getLastTests, isEmptyTests, removeTests,
+                                                 removeFirstTests, sizeTests};
   LinkedListTest::addTests(linkedListTests);
 }
 
