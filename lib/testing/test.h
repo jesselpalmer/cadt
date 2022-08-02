@@ -12,7 +12,7 @@ namespace testing {
 
 class Test {
  private:
-  std::string testName;
+  std::string name;
 
  public:
   Test(std::string testName);

@@ -44,11 +44,11 @@ void NodeTests::loadTests() {
   ConstructorTests* constructorTests = new ConstructorTests("constructor tests");
   ValueTests* valueTests = new ValueTests("value tests");
   std::vector<testing::Test*> nodeTests = {constructorTests, valueTests};
-  NodeTests::addTests(nodeTests);
+  addTests(nodeTests);
 }
 
 NodeTests::NodeTests() {
-  NodeTests::setSuiteName("Node tests");
+  setSuiteName("Node tests");
   loadTests();
 }
 

@@ -6,8 +6,6 @@
 #ifndef CADT_TEST_NODE_TESTS_H
 #define CADT_TEST_NODE_TESTS_H
 
-#include <iostream>
-
 #include "../../lib/testing/test_suite.h"
 
 namespace node_test {

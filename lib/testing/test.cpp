@@ -8,17 +8,17 @@
 namespace testing {
 
 Test::Test(std::string testName) {
-  Test::testName = testName;
+  name = testName;
 }
 
 void Test::executeTest() {}
 
 std::string Test::getTestName() {
-  return Test::testName;
+  return name;
 }
 
 void Test::setTestName(std::string testName) {
-  Test::testName = testName;
+  name = testName;
 }
 
 } // namespace testing

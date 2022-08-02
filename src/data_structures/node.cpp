@@ -9,45 +9,45 @@
 namespace data_structures {
 
 Node::Node() {
-  Node::value = NULL;
-  Node::next = nullptr;
-  Node::prev = nullptr;
+  value = NULL;
+  next = nullptr;
+  prev = nullptr;
 }
 
-Node::Node(int value) {
-  Node::value = value;
-  Node::next = nullptr;
-  Node::prev = nullptr;
+Node::Node(int val) {
+  value = val;
+  next = nullptr;
+  prev = nullptr;
 }
 
 Node::~Node() {
-  Node::value = NULL;
-  Node::next = nullptr;
-  Node::prev = nullptr;
+  value = NULL;
+  next = nullptr;
+  prev = nullptr;
 }
 
 int Node::getValue() {
-  return Node::value;
+  return value;
 }
 
-void Node::setValue(int value) {
-  Node::value = value;
+void Node::setValue(int val) {
+  value = val;
 }
 
 Node *Node::getPrev() {
-  return Node::prev;
+  return prev;
 }
 
-void Node::setPrev(Node *prev) {
-  Node::prev = prev;
+void Node::setPrev(Node *prevNode) {
+  prev = prevNode;
 }
 
 Node *Node::getNext() {
-  return Node::next;
+  return next;
 }
 
-void Node::setNext(Node *next) {
-  Node::next = next;
+void Node::setNext(Node *nextNode) {
+  next = nextNode;
 }
 
 } // namespace data_structures

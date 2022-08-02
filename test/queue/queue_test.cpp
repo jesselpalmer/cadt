@@ -113,11 +113,11 @@ void QueueTests::loadTests() {
   SizeTests *sizeTests = new SizeTests("size tests");
 
   std::vector<testing::Test*> queueTests = {backTests, frontTests, dequeueTests, enqueueTests, sizeTests};
-  queue_test::QueueTests::addTests(queueTests);
+  addTests(queueTests);
 }
 
 QueueTests::QueueTests() {
-  queue_test::QueueTests::setSuiteName("Queue tests");
+  setSuiteName("Queue tests");
   loadTests();
 }
 

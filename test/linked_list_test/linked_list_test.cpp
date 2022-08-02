@@ -258,7 +258,7 @@ void LinkedListTest::loadTests() {
 }
 
 LinkedListTest::LinkedListTest() {
-  LinkedListTest::setSuiteName("LinkedList tests");
+  setSuiteName("LinkedList tests");
   loadTests();
 }
 

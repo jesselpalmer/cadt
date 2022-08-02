@@ -8,19 +8,19 @@
 namespace data_structures {
 
 int Queue::back() {
-  return Queue::getLast();
+  return getLast();
 }
 
 int Queue::dequeue() {
-  return Queue::removeFirst();
+  return removeFirst();
 }
 
 void Queue::enqueue(int value) {
-  Queue::addEnd(value);
+  addEnd(value);
 }
 
 int Queue::front() {
-  return Queue::getFirst();
+  return getFirst();
 }
 
 } // namespace data_structures

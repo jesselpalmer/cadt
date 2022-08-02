@@ -1,18 +1,18 @@
+// Copyright Jesse Palmer All Rights Reserved.
 //
-// Created by Jesse Palmer on 7/21/22.
-//
+// Use of this source code is governed by the MIT license that can be
+// found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
 #include "test_assert.h"
 #include "test_runner.h"
-#include <iostream>
 
 namespace testing {
 
 Assert::Assert(int item1, int item2, std::string testName) {
   if (compare(item1, item2)) {
-    testing::TestRunner::testPassed(testName);
+    TestRunner::testPassed(testName);
   } else {
-    testing::TestRunner::testFailed(testName);
+    TestRunner::testFailed(testName);
   }
 }
 
