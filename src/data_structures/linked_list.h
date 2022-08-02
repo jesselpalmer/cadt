@@ -28,6 +28,7 @@ class LinkedList {
   int getFirst();
   int getLast();
   bool isEmpty();
+  int peek();
   int remove(int value);
   int removeFirst();
   int removeLast();

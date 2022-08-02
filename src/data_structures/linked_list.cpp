@@ -90,6 +90,10 @@ bool LinkedList::isEmpty() {
   return LinkedList::head == nullptr;
 }
 
+int LinkedList::peek() {
+  return getFirst();
+}
+
 int LinkedList::remove(int value) {
   Node *node = LinkedList::head;
 
