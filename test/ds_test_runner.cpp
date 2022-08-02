@@ -9,7 +9,7 @@
 #include "ds_test_runner.h"
 #include "linked_list_test/linked_list_test.h"
 #include "node_test/node_test.h"
-#include "queue/queue_test.h"
+#include "queue_test/queue_test.h"
 
 namespace test {
 
