@@ -5,7 +5,7 @@
 #ifndef CADT_TEST_STACK_TEST_H_
 #define CADT_TEST_STACK_TEST_H_
 
-class stack_test {
+class StackTest {
 
 };
 
