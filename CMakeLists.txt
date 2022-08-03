@@ -31,5 +31,5 @@ add_executable(cadt
         test/node_test/node_test.h
         test/queue_test/queue_test.cpp
         test/queue_test/queue_test.h
-        test/stack_test/StackTest.cpp
-        test/stack_test/StackTest.h)
+        test/stack_test/stack_test.cpp
+        test/stack_test/stack_test.h)

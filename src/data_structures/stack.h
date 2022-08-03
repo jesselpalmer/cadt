@@ -6,13 +6,15 @@
 #ifndef CADT_DATA_STRUCTURES_STACK_H
 #define CADT_DATA_STRUCTURES_STACK_H
 
+#include "linked_list.h"
+
 namespace data_structures {
 
-class Stack {
+class Stack : public data_structures::LinkedList {
  public:
-  void push();
-  void pop();
-  int search();
+  void push(int val);
+  int pop();
+  int peek();
 };
 
 } // namespace data_structures

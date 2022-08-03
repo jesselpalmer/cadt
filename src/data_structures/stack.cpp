@@ -4,3 +4,19 @@
 // found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
 #include "stack.h"
+
+namespace data_structures {
+
+void Stack::push(int val) {
+  addFront(val);
+}
+
+int Stack::pop() {
+  return removeFirst();
+}
+
+int Stack::peek() {
+  return getFirst();
+}
+
+}

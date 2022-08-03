@@ -10,6 +10,7 @@
 #include "linked_list_test/linked_list_test.h"
 #include "node_test/node_test.h"
 #include "queue_test/queue_test.h"
+#include "stack_test/stack_test.h"
 
 namespace test {
 
@@ -21,7 +22,8 @@ void DSTestRunner::loadTestSuites() {
   testing::TestSuite linkedListTest = linked_list_test::LinkedListTest();
   testing::TestSuite nodeTests = node_test::NodeTests();
   testing::TestSuite queueTests = queue_test::QueueTests();
-  std::vector<testing::TestSuite> testSuites = {linkedListTest, nodeTests, queueTests};
+  testing::TestSuite stackTests = stack_test::StackTests();
+  std::vector<testing::TestSuite> testSuites = {linkedListTest, nodeTests, queueTests, stackTests};
   DSTestRunner::addTestSuites(testSuites);
 }
 
