@@ -7,10 +7,10 @@ add_executable(cadt
         main.cpp
         benchmark/linked_list_benchmark.cpp
         benchmark/linked_list_benchmark
-        lib/testing/test_assert.cpp
-        lib/testing/test_assert.h
         lib/testing/test.cpp
         lib/testing/test.h
+        lib/testing/test_assert.cpp
+        lib/testing/test_assert.h
         lib/testing/test_runner.cpp
         lib/testing/test_runner.h
         lib/testing/test_suite.cpp
