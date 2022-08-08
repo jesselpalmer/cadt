@@ -32,4 +32,4 @@ add_executable(cadt
         test/queue_test/queue_test.cpp
         test/queue_test/queue_test.h
         test/stack_test/stack_test.cpp
-        test/stack_test/stack_test.h)
+        test/stack_test/stack_test.h src/data_structures/deque.cpp src/data_structures/deque.h benchmark/queue_benchmark.cpp benchmark/queue_benchmark.h)

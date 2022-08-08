@@ -7,6 +7,7 @@
 
 #include "test/ds_test_runner.h"
 #include "benchmark/linked_list_benchmark.h"
+#include "benchmark/queue_benchmark.h"
 
 int main(int argc, char *argv[]) {
   std::string firstArg = "";
@@ -18,8 +19,10 @@ int main(int argc, char *argv[]) {
   if (firstArg == "--test") {
     test::DSTestRunner().execute();
   } else if (firstArg == "--benchmark") {
-    benchmark::LinkedListBenchmark *linkedListBenchmark = new benchmark::LinkedListBenchmark();
-    linkedListBenchmark->perfTest();
+//    benchmark::LinkedListBenchmark *linkedListBenchmark = new benchmark::LinkedListBenchmark();
+//    linkedListBenchmark->perfTest();
+    benchmark::QueueBenchmark *queueBenchmark = new benchmark::QueueBenchmark();
+    queueBenchmark->perfTest();
   } else {
     std::cout << "Nothing to see here!" << std::endl;
   }
