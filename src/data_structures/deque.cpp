@@ -11,15 +11,15 @@ Deque::Deque() = default;
 Deque::~Deque() {};
 
 int Deque::dequeue() {
-  return Deque::removeFirst();
-}
-
-int Deque::dequeueBack() {
-  return Deque::removeLast();
+  return removeFirst();
 }
 
 int Deque::dequeueFront() {
-  return Deque::removeFirst();
+  return removeFirst();
+}
+
+void Deque::enqueue(int value) {
+  add(value);
 }
 
 }

@@ -14,6 +14,8 @@ class Deque : public data_structures::LinkedList {
   Deque();
   ~Deque();
 
+  int back();
+
   // Removes and returns the first value in the deque.
   int dequeue();
   int dequeueBack();
