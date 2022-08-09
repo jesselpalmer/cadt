@@ -1,7 +1,7 @@
 // Copyright Jesse Palmer All Rights Reserved.
 //
 // Use of this source code is governed by the MIT license that can be
-// found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
+// found in the LICENSE file at https://github.com/jesselpalmer/cadt/blob/main/LICENSE
 
 #ifndef CADT_TESTING_TEST_RUNNER_H
 #define CADT_TESTING_TEST_RUNNER_H
