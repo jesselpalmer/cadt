@@ -26,8 +26,8 @@ void customMadeQueue() {
     queue.enqueue(i);
   }
 
-  std::cout << "\tpre-dequeue operations size: " << queue.size() << std::endl;
-  std::cout << "\tpre-dequeue operations memory size: " << sizeof(queue) << " bytes" << std::endl;
+  std::cout << "\tpost-enqueue operations size: " << queue.size() << std::endl;
+  std::cout << "\tpost-enqueue operations memory size: " << sizeof(queue) << " bytes" << std::endl;
 
   while (!queue.isEmpty()) {
     queue.dequeue();
@@ -50,8 +50,8 @@ void nativeQueue() {
     queue.push(i);
   }
 
-  std::cout << "\tpre-dequeue operations size: " << queue.size() << std::endl;
-  std::cout << "\tpre-dequeue operations memory size: " << sizeof(queue) << " bytes" << std::endl;
+  std::cout << "\tpost-enqueue operations size: " << queue.size() << std::endl;
+  std::cout << "\tpost-enqueue operations memory size: " << sizeof(queue) << " bytes" << std::endl;
 
   while (!queue.empty()) {
     queue.pop();
