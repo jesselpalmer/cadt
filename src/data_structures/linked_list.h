@@ -30,7 +30,11 @@ class LinkedList {
   bool isEmpty();
   int peek();
   int remove(int value);
+
+  // Removes and returns the first value in the list.
   int removeFirst();
+
+  // Removes and returns the last value in the list.
   int removeLast();
   bool search(int value);
   int size() const;
