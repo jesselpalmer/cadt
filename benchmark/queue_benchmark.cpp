@@ -1,9 +1,3 @@
-//
-// Created by Jesse Palmer on 8/7/22.
-//
-
-#include "queue_benchmark.h"
-
 // Copyright Jesse Palmer All Rights Reserved.
 //
 // Use of this source code is governed by the MIT license that can be
