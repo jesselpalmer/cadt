@@ -21,37 +21,10 @@ namespace benchmark {
 
 QueueBenchmark::QueueBenchmark() {}
 
-void nativeQueue() {
-  int attempts = 100000000;
-  std::queue<int> queue;
-  auto start = high_resolution_clock::now();
-
-  for (int i = 0; i < attempts; i++) {
-    queue.push(i);
-  }
-
-  std::cout << queue.size() << std::endl;
-
-//  for (int i = 0; i < attempts; i++) {
-//    linkedList.removeFirst();
-//  }
-
-  while (!queue.empty()) {
-    queue.pop();
-  }
-
-//  std::cout << "Size " << sizeof(linkedList) << " bytes" << std::endl;
-//  std::cout << linkedList.size() << std::endl;
-
-  auto stop = high_resolution_clock::now();
-  auto duration = duration_cast<milliseconds>(stop - start);
-
-  std::cout << duration.count() << std::endl;
-
-}
+const int attempts = 10000000;
 
 void customMadeQueue() {
-  int attempts = 100000000;
+  std::cout << "Custom made queue benchmark tests:" << std::endl;
   data_structures::Queue queue;
   auto start = high_resolution_clock::now();
 
@@ -59,24 +32,43 @@ void customMadeQueue() {
     queue.enqueue(i);
   }
 
-  std::cout << queue.size() << std::endl;
-
-//  for (int i = 0; i < attempts; i++) {
-//    linkedList.removeFirst();
-//  }
+  std::cout << "\tpre-dequeue operations size: " << queue.size() << std::endl;
+  std::cout << "\tpre-dequeue operations memory size: " << sizeof(queue) << " bytes" << std::endl;
 
   while (!queue.isEmpty()) {
     queue.dequeue();
   }
 
-//  std::cout << "Size " << sizeof(linkedList) << " bytes" << std::endl;
-//  std::cout << linkedList.size() << std::endl;
+  std::cout << "\tpost-dequeue operations size: " << queue.size() << std::endl;
 
   auto stop = high_resolution_clock::now();
   auto duration = duration_cast<milliseconds>(stop - start);
 
-  std::cout << duration.count() << std::endl;
+  std::cout << "\ttime: " << duration.count() << " ms\n" << std::endl;
+}
 
+void nativeQueue() {
+  std::cout << "Native queue benchmark tests:" << std::endl;
+  std::queue<int> queue;
+  auto start = high_resolution_clock::now();
+
+  for (int i = 0; i < attempts; i++) {
+    queue.push(i);
+  }
+
+  std::cout << "\tpre-dequeue operations size: " << queue.size() << std::endl;
+  std::cout << "\tpre-dequeue operations memory size: " << sizeof(queue) << " bytes" << std::endl;
+
+  while (!queue.empty()) {
+    queue.pop();
+  }
+
+  std::cout << "\tpost-dequeue operations size: " << queue.size() << std::endl;
+
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<milliseconds>(stop - start);
+
+  std::cout << "\ttime: " << duration.count() << " ms\n" << std::endl;
 }
 
 void QueueBenchmark::perfTest() {
