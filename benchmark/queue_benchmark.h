@@ -1,6 +1,7 @@
+// Copyright Jesse Palmer All Rights Reserved.
 //
-// Created by Jesse Palmer on 8/7/22.
-//
+// Use of this source code is governed by the MIT license that can be
+// found in the LICENSE file at https://github.com/jesselpalmer/cadt/LICENSE
 
 #ifndef CADT_BENCHMARK_QUEUE_BENCHMARK_H_
 #define CADT_BENCHMARK_QUEUE_BENCHMARK_H_
