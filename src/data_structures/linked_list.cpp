@@ -94,6 +94,14 @@ int LinkedList::peek() {
   return getFirst();
 }
 
+int LinkedList::peekFirst() {
+  return getFirst();
+}
+
+int LinkedList::peekLast() {
+  return getLast();
+}
+
 int LinkedList::remove(int value) {
   Node *node = LinkedList::head;
 

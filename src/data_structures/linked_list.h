@@ -29,6 +29,8 @@ class LinkedList {
   int getLast();
   bool isEmpty();
   int peek();
+  int peekFirst();
+  int peekLast();
   int remove(int value);
 
   // Removes and returns the first value in the list.
@@ -36,6 +38,8 @@ class LinkedList {
 
   // Removes and returns the last value in the list.
   int removeLast();
+
+
   bool search(int value);
   int size() const;
   std::string toString();

@@ -183,6 +183,44 @@ void PeekTests::executeTest() {
   testing::Assert(true, linkedList.contains(535342424), "should contain first value after peek is called");
 }
 
+class PeekFirstTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void PeekFirstTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  testing::Assert(true, linkedList.isEmpty(), "should be empty on initialization");
+
+  linkedList.addFront(349013);
+  linkedList.addFront(24345234);
+  linkedList.addFront(87909);
+
+  testing::Assert(87909, linkedList.peekFirst(), "should return first value, but still should exist in list");
+  testing::Assert(true, linkedList.contains(87909), "should contain first value after peekFirst is called");
+}
+
+class PeekLastTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void PeekLastTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  testing::Assert(true, linkedList.isEmpty(), "should be empty on initialization");
+
+  linkedList.addFront(3409343);
+  linkedList.addFront(-83983984);
+  linkedList.addFront(34388822);
+
+  testing::Assert(3409343, linkedList.peekLast(), "should return last value, but still should exist in list");
+  testing::Assert(true, linkedList.contains(3409343), "should contain last value after peekLast is called");
+}
+
 class RemoveFirstTests : public testing::Test {
  public:
   using Test::Test;
@@ -285,14 +323,16 @@ void LinkedListTest::loadTests() {
   GetLastTests *getLastTests = new GetLastTests("getLast tests");
   IsEmptyTests *isEmptyTests = new IsEmptyTests("isEmpty tests");
   PeekTests *peekTests = new PeekTests("peek tests");
+  PeekFirstTests *peekFirstTests = new PeekFirstTests("peekFirst tests");
+  PeekLastTests *peekLastTests = new PeekLastTests("peekLast tests");
   RemoveTests *removeTests = new RemoveTests("remove tests");
   RemoveFirstTests *removeFirstTests = new RemoveFirstTests("remove first tests");
   SizeTests *sizeTests = new SizeTests("size tests");
   ToStringTests *toStringTests = new ToStringTests("toString tests");
 
   std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, clearTests, containsTests,
-                                                 getFirstTests, getLastTests, isEmptyTests, peekTests, removeTests,
-                                                 removeFirstTests, sizeTests, toStringTests};
+                                                 getFirstTests, getLastTests, isEmptyTests, peekTests, peekFirstTests,
+                                                 peekLastTests, removeTests, removeFirstTests, sizeTests, toStringTests};
   LinkedListTest::addTests(linkedListTests);
 }
 
