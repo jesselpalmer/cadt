@@ -139,6 +139,21 @@ int LinkedList::removeFirst() {
   return value;
 }
 
+int LinkedList::removeLast() {
+  int value = 0;
+
+  if (LinkedList::length > 0) {
+    Node *lastNode = LinkedList::tail;
+    value = lastNode->getValue();
+    LinkedList::tail = lastNode->getPrev();
+    LinkedList::tail->setNext(nullptr);
+    delete lastNode;
+    LinkedList::length--;
+  }
+
+  return value;
+}
+
 int LinkedList::size() const {
   return LinkedList::length;
 }

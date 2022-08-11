@@ -221,24 +221,6 @@ void PeekLastTests::executeTest() {
   testing::Assert(true, linkedList.contains(3409343), "should contain last value after peekLast is called");
 }
 
-class RemoveFirstTests : public testing::Test {
- public:
-  using Test::Test;
-  void executeTest() override;
-};
-
-void RemoveFirstTests::executeTest() {
-  data_structures::LinkedList linkedList = data_structures::LinkedList();
-
-  linkedList.addFront(3313);
-  linkedList.addFront(3342);
-  linkedList.addFront(998987);
-
-  testing::Assert(998987, linkedList.removeFirst(), "should remove first value");
-  testing::Assert(2, linkedList.size(), "should be correct value after value is removed");
-  testing::Assert(false, linkedList.contains(998987), "should no longer contain first element");
-}
-
 class RemoveTests : public testing::Test {
  public:
   using Test::Test;
@@ -277,6 +259,44 @@ void RemoveTests::executeTest() {
   testing::Assert(2, size, "should be correct size after last value removed");
 
   testing::Assert(0, linkedList.remove(3442), "should return 0 if nothing is removed");
+}
+
+class RemoveFirstTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void RemoveFirstTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  linkedList.addFront(3313);
+  linkedList.addFront(3342);
+  linkedList.addFront(998987);
+
+  testing::Assert(998987, linkedList.removeFirst(), "should remove first value");
+  testing::Assert(2, linkedList.size(), "should be correct value after value is removed");
+  testing::Assert(false, linkedList.contains(998987), "should no longer contain first element");
+}
+
+class RemoveLastTests : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void RemoveLastTests::executeTest() {
+  data_structures::LinkedList linkedList = data_structures::LinkedList();
+
+  linkedList.addFront(9876543);
+  linkedList.addFront(65764547);
+  linkedList.addFront(64547);
+  linkedList.addFront(6576324547);
+  linkedList.addFront(-763525);
+
+  testing::Assert(9876543, linkedList.removeLast(), "should remove last value");
+  testing::Assert(4, linkedList.size(), "should be correct value after value is removed");
+  testing::Assert(false, linkedList.contains(9876543), "should no longer contain last element");
 }
 
 class SizeTests : public testing::Test {
@@ -327,12 +347,14 @@ void LinkedListTest::loadTests() {
   PeekLastTests *peekLastTests = new PeekLastTests("peekLast tests");
   RemoveTests *removeTests = new RemoveTests("remove tests");
   RemoveFirstTests *removeFirstTests = new RemoveFirstTests("remove first tests");
+  RemoveLastTests *removeLastTests = new RemoveLastTests("remove last tests");
   SizeTests *sizeTests = new SizeTests("size tests");
   ToStringTests *toStringTests = new ToStringTests("toString tests");
 
   std::vector<testing::Test*> linkedListTests = {addTests, addEndTests, addFrontTests, clearTests, containsTests,
                                                  getFirstTests, getLastTests, isEmptyTests, peekTests, peekFirstTests,
-                                                 peekLastTests, removeTests, removeFirstTests, sizeTests, toStringTests};
+                                                 peekLastTests, removeTests, removeFirstTests, removeLastTests,
+                                                 sizeTests, toStringTests};
   LinkedListTest::addTests(linkedListTests);
 }
 

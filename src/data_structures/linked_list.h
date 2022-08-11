@@ -39,7 +39,6 @@ class LinkedList {
   // Removes and returns the last value in the list.
   int removeLast();
 
-
   bool search(int value);
   int size() const;
   std::string toString();
