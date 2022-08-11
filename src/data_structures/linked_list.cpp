@@ -12,52 +12,52 @@ namespace data_structures {
 LinkedList::LinkedList() = default;
 
 void LinkedList::add(int value) {
-  LinkedList::addEnd(value);
+  addEnd(value);
 }
 
 void LinkedList::addEnd(int value) {
   Node *newNode = new Node(value);
 
-  if (LinkedList::head == nullptr) {
-    LinkedList::head = newNode;
-    LinkedList::tail = newNode;
+  if (head == nullptr) {
+    head = newNode;
+    tail = newNode;
   } else {
-    newNode->setPrev(LinkedList::tail);
-    LinkedList::tail->setNext(newNode);
-    LinkedList::tail = newNode;
+    newNode->setPrev(tail);
+    tail->setNext(newNode);
+    tail = newNode;
   }
 
-  LinkedList::length++;
+  length++;
 }
 
 void LinkedList::addFront(int value) {
   Node *newNode = new Node(value);
 
-  if (LinkedList::head == nullptr) {
-    LinkedList::head = newNode;
-    LinkedList::tail = newNode;
+  if (head == nullptr) {
+    head = newNode;
+    tail = newNode;
   } else {
-    newNode->setNext(LinkedList::head);
-    LinkedList::head->setPrev(newNode);
-    LinkedList::head = newNode;
+    newNode->setNext(head);
+    head->setPrev(newNode);
+    head = newNode;
   }
 
-  LinkedList::length++;
+  length++;
 }
 
 void LinkedList::clear() {
-  Node *node = LinkedList::head;
+  Node *node = head;
 
   while (node != nullptr) {
     Node *nextNode = node->getNext();
     delete node;
     node = nextNode;
-    LinkedList::length--;
+    length--;
   }
 }
 
 bool LinkedList::contains(int value) {
-  Node *node = LinkedList::head;
+  Node *node = head;
 
   while (node != nullptr) {
     if (node->getValue() == value) {
@@ -71,23 +71,23 @@ bool LinkedList::contains(int value) {
 }
 
 int LinkedList::getFirst() {
-  if (LinkedList::length > 0) {
-    return LinkedList::head->getValue();
+  if (length > 0) {
+    return head->getValue();
   } else {
     return 0;
   }
 }
 
 int LinkedList::getLast() {
-  if (LinkedList::length > 0) {
-    return LinkedList::tail->getValue();
+  if (length > 0) {
+    return tail->getValue();
   } else {
     return 0;
   }
 }
 
 bool LinkedList::isEmpty() {
-  return LinkedList::head == nullptr;
+  return head == nullptr;
 }
 
 int LinkedList::peek() {
@@ -103,18 +103,18 @@ int LinkedList::peekLast() {
 }
 
 int LinkedList::remove(int value) {
-  Node *node = LinkedList::head;
+  Node *node = head;
 
   while (node != nullptr) {
-    if (node->getValue() == value && LinkedList::head == node) {
-      LinkedList::head = LinkedList::head->getNext();
+    if (node->getValue() == value && head == node) {
+      head = head->getNext();
       delete node;
-      LinkedList::length--;
+      length--;
       return value;
-    } else if (node->getValue() == value && LinkedList::head != node) {
+    } else if (node->getValue() == value && head != node) {
       Node *prevNode = node->getPrev();
       prevNode->setNext(node->getNext());
-      LinkedList::length--;
+      length--;
       delete node;
       return value;
     }
@@ -128,12 +128,12 @@ int LinkedList::remove(int value) {
 int LinkedList::removeFirst() {
   int value = 0;
 
-  if (LinkedList::length > 0) {
-    Node *firstNode = LinkedList::head;
-    value = LinkedList::head->getValue();
-    LinkedList::head = firstNode->getNext();
+  if (length > 0) {
+    Node *firstNode = head;
+    value = head->getValue();
+    head = firstNode->getNext();
     delete firstNode;
-    LinkedList::length--;
+    length--;
   }
 
   return value;
@@ -142,25 +142,25 @@ int LinkedList::removeFirst() {
 int LinkedList::removeLast() {
   int value = 0;
 
-  if (LinkedList::length > 0) {
-    Node *lastNode = LinkedList::tail;
+  if (length > 0) {
+    Node *lastNode = tail;
     value = lastNode->getValue();
-    LinkedList::tail = lastNode->getPrev();
-    LinkedList::tail->setNext(nullptr);
+    tail = lastNode->getPrev();
+    tail->setNext(nullptr);
     delete lastNode;
-    LinkedList::length--;
+    length--;
   }
 
   return value;
 }
 
 int LinkedList::size() const {
-  return LinkedList::length;
+  return length;
 }
 
 std::string LinkedList::toString() {
   std::string resultStr = "[";
-  Node *currentNode = LinkedList::head;
+  Node *currentNode = head;
 
   while (currentNode != nullptr) {
     resultStr += std::to_string(currentNode->getValue());
