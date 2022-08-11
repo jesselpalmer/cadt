@@ -15,6 +15,10 @@ int Deque::dequeue() {
   return removeFirst();
 }
 
+int Deque::dequeueBack() {
+  return removeLast();
+}
+
 int Deque::dequeueFront() {
   return removeFirst();
 }
