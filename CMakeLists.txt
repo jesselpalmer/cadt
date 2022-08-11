@@ -7,6 +7,8 @@ add_executable(cadt
         main.cpp
         benchmark/linked_list_benchmark.cpp
         benchmark/linked_list_benchmark
+        benchmark/queue_benchmark.cpp
+        benchmark/queue_benchmark.h
         lib/testing/test.cpp
         lib/testing/test.h
         lib/testing/test_assert.cpp
@@ -15,6 +17,8 @@ add_executable(cadt
         lib/testing/test_runner.h
         lib/testing/test_suite.cpp
         lib/testing/test_suite.h
+        src/data_structures/deque.cpp
+        src/data_structures/deque.h
         src/data_structures/linked_list.cpp
         src/data_structures/linked_list.h
         src/data_structures/node.cpp
@@ -23,6 +27,8 @@ add_executable(cadt
         src/data_structures/queue.h
         src/data_structures/stack.cpp
         src/data_structures/stack.h
+        test/deque_test/deque_test.cpp
+        test/deque_test/deque_test.h
         test/ds_test_runner.cpp
         test/ds_test_runner.h
         test/linked_list_test/linked_list_test.cpp
@@ -32,4 +38,4 @@ add_executable(cadt
         test/queue_test/queue_test.cpp
         test/queue_test/queue_test.h
         test/stack_test/stack_test.cpp
-        test/stack_test/stack_test.h src/data_structures/deque.cpp src/data_structures/deque.h benchmark/queue_benchmark.cpp benchmark/queue_benchmark.h)
+        test/stack_test/stack_test.h)
