@@ -11,6 +11,10 @@ Deque::Deque() = default;
 
 Deque::~Deque() {};
 
+int Deque::back() {
+  return getLast();
+}
+
 int Deque::dequeue() {
   return removeFirst();
 }
@@ -25,6 +29,10 @@ int Deque::dequeueFront() {
 
 void Deque::enqueue(int value) {
   add(value);
+}
+
+int Deque::front() {
+  return getFirst();
 }
 
 }
