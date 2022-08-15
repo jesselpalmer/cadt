@@ -111,6 +111,47 @@ void EnqueueTest::executeTest() {
   testing::Assert(8765, lastValue, "should have the last added value at the back");
 }
 
+class EnqueueBackTest : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void EnqueueBackTest::executeTest() {
+  data_structures::Deque deque = data_structures::Deque();
+
+  deque.enqueueBack(40933);
+  deque.enqueueFront(902232);
+  deque.enqueueBack(-424444);
+  deque.enqueueFront(24242342);
+  deque.enqueueBack(-2255222);
+
+  int backValue = deque.dequeueBack();
+
+  testing::Assert(-2255222, backValue, "should have the last value added at the back");
+  testing::Assert(4, deque.size(), "should have the correct size");
+}
+
+class EnqueueFrontTest : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void EnqueueFrontTest::executeTest() {
+  data_structures::Deque deque = data_structures::Deque();
+
+  deque.enqueueFront(40933);
+  deque.enqueueFront(902232);
+  deque.enqueueFront(5534242);
+  deque.enqueueFront(-55342);
+
+  int frontValue = deque.dequeueFront();
+
+  testing::Assert(-55342, frontValue, "should have the last value added at the front");
+  testing::Assert(3, deque.size(), "should have the correct size");
+}
+
 class FrontTest : public testing::Test {
  public:
   using Test::Test;
@@ -136,10 +177,12 @@ void DequeTest::loadTests() {
   DequeueBackTest *dequeueBackTests = new DequeueBackTest("dequeueback tests");
   DequeueFrontTest *dequeueFrontTests = new DequeueFrontTest("dequeuefront tests");
   EnqueueTest *enqueueTests = new EnqueueTest("enqueue tests");
+  EnqueueBackTest *enqueueBackTests = new EnqueueBackTest("enqueueback tests");
+  EnqueueFrontTest *enqueueFrontTests = new EnqueueFrontTest("enqueuefront tests");
   FrontTest *frontTests = new FrontTest("front tests");
 
   std::vector<testing::Test*> dequeTests = {backTests, dequeueTests, dequeueBackTests, dequeueFrontTests, enqueueTests,
-                                            frontTests};
+                                            enqueueBackTests, enqueueFrontTests, frontTests};
   DequeTest::addTests(dequeTests);
 }
 
