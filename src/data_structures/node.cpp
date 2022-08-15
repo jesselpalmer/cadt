@@ -9,13 +9,11 @@
 namespace data_structures {
 
 Node::Node() {
-  value = NULL;
   next = nullptr;
   prev = nullptr;
 }
 
 Node::~Node() {
-  value = NULL;
   next = nullptr;
   prev = nullptr;
 }

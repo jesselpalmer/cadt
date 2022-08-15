@@ -175,7 +175,7 @@ void PeekTests::executeTest() {
 
   testing::Assert(true, linkedList.isEmpty(), "should be empty on initialization");
 
-  linkedList.addFront(3342412132);
+  linkedList.addFront(33424132);
   linkedList.addFront(-343529402);
   linkedList.addFront(535342424);
 
@@ -291,7 +291,7 @@ void RemoveLastTests::executeTest() {
   linkedList.addFront(9876543);
   linkedList.addFront(65764547);
   linkedList.addFront(64547);
-  linkedList.addFront(6576324547);
+  linkedList.addFront(65763247);
   linkedList.addFront(-763525);
 
   testing::Assert(9876543, linkedList.removeLast(), "should remove last value");
