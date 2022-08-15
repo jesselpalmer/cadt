@@ -17,7 +17,7 @@ class Queue : public data_structures::LinkedList {
   ~Queue();
 
   // Returns, but doesn't remove, the last value in the queue.
-  int back();
+  int back() const;
 
   // Removes and returns the first value in the queue.
   int dequeue();
@@ -26,7 +26,7 @@ class Queue : public data_structures::LinkedList {
   void enqueue(int value);
 
   // Returns, but doesn't remove, the first value in the queue.
-  int front();
+  int front() const;
 };
 
 } // namespace data_structures

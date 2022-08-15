@@ -15,7 +15,7 @@ class Deque : public data_structures::LinkedList {
   Deque();
   ~Deque();
 
-  int back();
+  int back() const;
 
   // Removes and returns the first value in the deque.
   int dequeue();
@@ -28,7 +28,7 @@ class Deque : public data_structures::LinkedList {
   void enqueueFront(int value);
 
   // Returns, but doesn't remove, the first value in the deque.
-  int front();
+  int front() const;
 };
 
 }

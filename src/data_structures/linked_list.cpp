@@ -58,7 +58,7 @@ void LinkedList::clear() {
   }
 }
 
-bool LinkedList::contains(int value) {
+bool LinkedList::contains(int value) const {
   Node *node = head;
 
   while (node != nullptr) {
@@ -72,7 +72,7 @@ bool LinkedList::contains(int value) {
   return false;
 }
 
-int LinkedList::getFirst() {
+int LinkedList::getFirst() const {
   if (length > 0) {
     return head->getValue();
   } else {
@@ -80,7 +80,7 @@ int LinkedList::getFirst() {
   }
 }
 
-int LinkedList::getLast() {
+int LinkedList::getLast() const {
   if (length > 0) {
     return tail->getValue();
   } else {
@@ -88,19 +88,19 @@ int LinkedList::getLast() {
   }
 }
 
-bool LinkedList::isEmpty() {
+bool LinkedList::isEmpty() const {
   return head == nullptr;
 }
 
-int LinkedList::peek() {
+int LinkedList::peek() const {
   return getFirst();
 }
 
-int LinkedList::peekFirst() {
+int LinkedList::peekFirst() const {
   return getFirst();
 }
 
-int LinkedList::peekLast() {
+int LinkedList::peekLast() const {
   return getLast();
 }
 

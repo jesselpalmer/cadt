@@ -25,13 +25,18 @@ class LinkedList {
   void addEnd(int value);
   void addFront(int value);
   void clear();
-  bool contains(int value);
-  int getFirst();
-  int getLast();
-  bool isEmpty();
-  int peek();
-  int peekFirst();
-  int peekLast();
+  bool contains(int value) const;
+
+  // Returns, but does not remove, the first value in the list.
+  int getFirst() const;
+
+  // Returns, but does not remove, the last value in the list.
+  int getLast() const;
+
+  bool isEmpty() const;
+  int peek() const;
+  int peekFirst() const;
+  int peekLast() const;
   int remove(int value);
 
   // Removes and returns the first value in the list.
@@ -40,7 +45,7 @@ class LinkedList {
   // Removes and returns the last value in the list.
   int removeLast();
 
-  bool search(int value);
+  bool search(int value) const;
   int size() const;
   std::string toString();
 };

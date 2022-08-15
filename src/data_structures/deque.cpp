@@ -11,7 +11,7 @@ Deque::Deque() = default;
 
 Deque::~Deque() {};
 
-int Deque::back() {
+int Deque::back() const {
   return getLast();
 }
 
@@ -39,7 +39,7 @@ void Deque::enqueueBack(int value) {
   add(value);
 }
 
-int Deque::front() {
+int Deque::front() const {
   return getFirst();
 }
 

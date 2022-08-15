@@ -19,8 +19,4 @@ int Stack::pop() {
   return removeFirst();
 }
 
-int Stack::peek() {
-  return getFirst();
-}
-
 }

@@ -11,7 +11,7 @@ Queue::Queue() = default;
 
 Queue::~Queue() {}
 
-int Queue::back() {
+int Queue::back() const {
   return getLast();
 }
 
@@ -23,7 +23,7 @@ void Queue::enqueue(int value) {
   addEnd(value);
 }
 
-int Queue::front() {
+int Queue::front() const {
   return getFirst();
 }
 

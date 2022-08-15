@@ -16,7 +16,6 @@ class Stack : public data_structures::LinkedList {
   ~Stack();
   void push(int val);
   int pop();
-  int peek();
 };
 
 } // namespace data_structures
