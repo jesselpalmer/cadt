@@ -13,6 +13,8 @@ namespace data_structures {
 // Implementation of a queue data structure using a linked list.
 class Queue : public data_structures::LinkedList {
  public:
+  Queue();
+  ~Queue();
 
   // Returns, but doesn't remove, the last value in the queue.
   int back();

@@ -20,6 +20,7 @@ class LinkedList {
 
  public:
   LinkedList();
+  ~LinkedList();
   void add(int value);
   void addEnd(int value);
   void addFront(int value);

@@ -14,14 +14,14 @@ Node::Node() {
   prev = nullptr;
 }
 
-Node::Node(int val) {
-  value = val;
+Node::~Node() {
+  value = NULL;
   next = nullptr;
   prev = nullptr;
 }
 
-Node::~Node() {
-  value = NULL;
+Node::Node(int val) {
+  value = val;
   next = nullptr;
   prev = nullptr;
 }

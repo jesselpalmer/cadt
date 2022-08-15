@@ -7,6 +7,10 @@
 
 namespace data_structures {
 
+Queue::Queue() = default;
+
+Queue::~Queue() {}
+
 int Queue::back() {
   return getLast();
 }

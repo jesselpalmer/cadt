@@ -11,6 +11,8 @@ namespace data_structures {
 
 LinkedList::LinkedList() = default;
 
+LinkedList::~LinkedList() {}
+
 void LinkedList::add(int value) {
   addEnd(value);
 }

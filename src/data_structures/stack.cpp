@@ -7,6 +7,10 @@
 
 namespace data_structures {
 
+Stack::Stack() = default;
+
+Stack::~Stack() {}
+
 void Stack::push(int val) {
   addFront(val);
 }
