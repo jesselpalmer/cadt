@@ -49,6 +49,48 @@ void DequeueTest::executeTest() {
   testing::Assert(false, deque.contains(445903), "should not contain value after dequeue");
 }
 
+class DequeueBackTest : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void DequeueBackTest::executeTest() {
+  data_structures::Deque deque = data_structures::Deque();
+
+  deque.enqueueBack(423133);
+  deque.enqueueBack(-9942424);
+  deque.enqueueBack(442443343);
+
+  testing::Assert(true, deque.contains(442443343), "should contain value before dequeueback");
+
+  int dequeueValue = deque.dequeueBack();
+
+  testing::Assert(442443343, dequeueValue, "should dequeue the last added value");
+  testing::Assert(false, deque.contains(442443343), "should not contain value after dequeueback");
+}
+
+class DequeueFrontTest : public testing::Test {
+ public:
+  using Test::Test;
+  void executeTest() override;
+};
+
+void DequeueFrontTest::executeTest() {
+  data_structures::Deque deque = data_structures::Deque();
+
+  deque.enqueueFront(-35242419);
+  deque.enqueueBack(95883421);
+  deque.enqueueFront(12133359);
+
+  testing::Assert(true, deque.contains(12133359), "should contain value before dequeuefront");
+
+  int dequeueValue = deque.dequeueFront();
+
+  testing::Assert(12133359, dequeueValue, "should dequeue the front value");
+  testing::Assert(false, deque.contains(12133359), "should not contain value after dequeuefront");
+}
+
 class EnqueueTest : public testing::Test {
  public:
   using Test::Test;
@@ -90,11 +132,14 @@ void FrontTest::executeTest() {
 
 void DequeTest::loadTests() {
   BackTest *backTests = new BackTest("back tests");
-  DequeueTest *dequeue = new DequeueTest("dequeue tests");
+  DequeueTest *dequeueTests = new DequeueTest("dequeue tests");
+  DequeueBackTest *dequeueBackTests = new DequeueBackTest("dequeueback tests");
+  DequeueFrontTest *dequeueFrontTests = new DequeueFrontTest("dequeuefront tests");
   EnqueueTest *enqueueTests = new EnqueueTest("enqueue tests");
   FrontTest *frontTests = new FrontTest("front tests");
 
-  std::vector<testing::Test*> dequeTests = {backTests, enqueueTests, dequeue, frontTests};
+  std::vector<testing::Test*> dequeTests = {backTests, dequeueTests, dequeueBackTests, dequeueFrontTests, enqueueTests,
+                                            frontTests};
   DequeTest::addTests(dequeTests);
 }
 

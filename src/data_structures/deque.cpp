@@ -31,6 +31,14 @@ void Deque::enqueue(int value) {
   add(value);
 }
 
+void Deque::enqueueFront(int value) {
+  addFront(value);
+}
+
+void Deque::enqueueBack(int value) {
+  add(value);
+}
+
 int Deque::front() {
   return getFirst();
 }
