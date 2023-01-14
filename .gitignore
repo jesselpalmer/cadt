@@ -175,3 +175,6 @@ main
 /sample_images
 /sample_images_bk
 *.bmp
+
+## Custom entries
+build
