@@ -19,8 +19,8 @@ int main(int argc, char *argv[]) {
   if (firstArg == "--test") {
     test::DSTestRunner().execute();
   } else if (firstArg == "--benchmark") {
-//    benchmark::LinkedListBenchmark *linkedListBenchmark = new benchmark::LinkedListBenchmark();
-//    linkedListBenchmark->perfTest();
+    benchmark::LinkedListBenchmark *linkedListBenchmark = new benchmark::LinkedListBenchmark();
+    linkedListBenchmark->perfTest();
     benchmark::QueueBenchmark *queueBenchmark = new benchmark::QueueBenchmark();
     queueBenchmark->perfTest();
   } else {
